@@ -4,35 +4,36 @@ Arquivos que o site espera e ainda não existem. Enquanto faltarem, as áreas
 correspondentes mostram placeholder marcado — foto de banco genérica não entra,
 por decisão de marca (`identidade/design-guide.md`).
 
-## Vídeo do hero — `hero-loop.mp4` ✅ em uso
+## Vídeo do hero — `hero-once.mp4` ✅ em uso
 
-Exploded view de bomba centrífuga, gerado no Google Flow. O arquivo em uso é
-uma versão processada do original: **1,25× de velocidade e vai-e-volta
-embutido**.
+Exploded view de bomba centrífuga, gerado no Google Flow. O arquivo em uso tem
+**1,25× de velocidade embutida** no próprio vídeo.
 
 | | |
 |---|---|
 | Resolução | 1280×720 (16:9) |
-| Duração | 15,96 s (7,98 s de ida + 7,98 s de volta) |
-| Quadros | 30 fps · 478 quadros |
+| Duração | 8,00 s |
+| Quadros | 30 fps · 240 quadros |
 | Codec | H.264 (`avc1`), sem áudio |
-| Tamanho | 2,70 MB |
+| Tamanho | 1,41 MB |
 
 `hero-poster.jpg` é o primeiro quadro, exibido enquanto o vídeo carrega.
 
-### Por que o vai-e-volta está no arquivo
+### Toca uma vez e congela
 
-Navegador não reproduz vídeo de trás para frente: `playbackRate` negativo não
-existe, e simular com JavaScript significa reposicionar `currentTime` a cada
-quadro — cada salto força o decodificador a voltar até o keyframe anterior, o
-que engasga.
+O `<video>` **não tem o atributo `loop`**. Isso basta: ao chegar no fim, o
+navegador mantém o último quadro na tela e não volta ao início. Não há
+JavaScript envolvido — tirar `loop` é a implementação inteira.
 
-Com ida e volta dentro do arquivo, o `loop` nativo resolve: a volta termina no
-quadro montado, que é exatamente onde a ida começa. Emenda invisível, custo zero
-de JavaScript.
+O quadro final é o exploded view completo, com as peças separadas. É ele que
+fica em tela permanentemente depois dos 8 segundos, então vale tratá-lo como
+imagem principal do hero: as peças se espalham para a direita e o motor fica
+sob a lavagem clara, atrás do texto.
 
-O quadro do ápice e o do reinício foram descartados no processamento — sem eles
-haveria um quadro repetido em cada virada, visível como uma travadinha.
+**Se um dia o loop voltar a ser desejado**, basta acrescentar `loop` no
+`<video>` — mas aí o corte do último quadro para o primeiro fica seco, porque o
+vídeo começa montado e termina desmontado. Nesse caso o certo é gerar a versão
+vai-e-volta (comando no histórico, commit `a00f9db`).
 
 ### Refazer com outra velocidade
 
@@ -47,12 +48,14 @@ Comando que gerou o arquivo atual (troque `1.25` pela velocidade desejada):
 
 ```bash
 ffmpeg -i hero-original.mp4 \
-  -filter_complex "[0:v]setpts=PTS/1.25,fps=30,split[a][b];\
-[b]reverse,trim=start_frame=1:end_frame=239,setpts=PTS-STARTPTS[r];\
-[a][r]concat=n=2:v=1[out]" \
-  -map "[out]" -an -c:v libx264 -preset slow -crf 19 \
-  -pix_fmt yuv420p -movflags +faststart hero-loop.mp4
+  -filter_complex "[0:v]setpts=PTS/1.25[out]" -map "[out]" \
+  -an -r 30 -c:v libx264 -preset slow -crf 19 \
+  -pix_fmt yuv420p -movflags +faststart hero-once.mp4
 ```
+
+O `-r 30` na saída não é opcional. Passar `fps=30` dentro do `-filter_complex`
+não surte efeito aqui: a saída sai em 25 fps e cerca de 17% dos quadros do
+original são descartados.
 
 ### Enquadramento
 

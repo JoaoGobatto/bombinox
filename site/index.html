@@ -57,12 +57,12 @@
          falhar ou enquanto ele carrega. -->
     <div class="hero__placeholder" aria-hidden="true"></div>
 
-    <!-- hero-loop.mp4 já tem ida e volta embutidas e roda a 1,25x, então
-         o loop nativo do navegador basta: ao terminar a volta ele reinicia
-         no quadro montado, que é exatamente onde a ida começa. -->
-    <video class="hero__video" autoplay muted loop playsinline
+    <!-- Sem o atributo `loop`: o vídeo roda uma vez, a 1,25x (velocidade
+         embutida no arquivo), e o navegador mantém o último quadro na tela
+         — o exploded view completo. Não precisa de JavaScript. -->
+    <video class="hero__video" autoplay muted playsinline
            preload="auto" poster="assets/hero-poster.jpg">
-      <source src="assets/hero-loop.mp4" type="video/mp4">
+      <source src="assets/hero-once.mp4" type="video/mp4">
     </video>
 
     <div class="hero__wash" aria-hidden="true"></div>
