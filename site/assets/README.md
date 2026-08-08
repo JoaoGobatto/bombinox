@@ -4,27 +4,39 @@ Arquivos que o site espera e ainda não existem. Enquanto faltarem, as áreas
 correspondentes mostram placeholder marcado — foto de banco genérica não entra,
 por decisão de marca (`identidade/design-guide.md`).
 
-## Vídeo do hero
+## Vídeo do hero — `hero.mp4` ✅ em uso
 
-| Arquivo | Uso |
+Gerado no Google Flow: bomba desmontando.
+
+| | |
 |---|---|
-| `hero.mp4` | fonte principal (H.264) |
-| `hero.webm` | fonte alternativa, opcional |
-| `hero-poster.jpg` | primeiro quadro, aparece antes do vídeo carregar |
+| Resolução | 1280×720 (16:9) |
+| Duração | 10,01 s |
+| Codec | H.264 (`avc1`) + AAC — toca em todo navegador |
+| Tamanho | 2,42 MB |
 
-Depois de colocar os arquivos aqui, descomentar os `<source>` em
-`site/index.html` (bloco marcado `► VÍDEO DE FUNDO`).
+Roda `autoplay muted loop playsinline`. A trilha de áudio existe mas nunca toca;
+removê-la economizaria alguns KB, se um dia o arquivo for reexportado.
 
-**O que o vídeo deve mostrar:** equipamento em inox em operação — bomba,
-tubulação, linha de processo. Ambiente limpo e organizado, iluminação clara,
-reflexo metálico. Sem pessoas de terno, sem estética de banco de imagem.
+### Enquadramento
 
-**Especificação sugerida:** 1920×1080, 8–15s em loop, sem áudio, arquivo abaixo
-de ~5 MB. O vídeo roda `muted` e `loop` — o corte precisa fechar sem salto
-perceptível.
+O hero é mais largo que 16:9, então o vídeo é escalado pela largura e o corte
+acontece em cima e embaixo. Para ajustar, mexer em `object-position` na regra
+`.hero__video` de `site/css/style.css`:
 
-O texto do hero fica sobre a metade esquerda com uma lavagem clara por cima.
-Enquadrar o assunto à direita para não competir com a headline.
+```css
+object-position: center 45%;   /* menor = mostra mais do topo */
+```
+
+A intensidade da lavagem clara sobre a metade esquerda (que mantém a headline
+legível) fica na regra `.hero__wash`, logo abaixo.
+
+### Limitações conhecidas
+
+- **720p** fica levemente suave em monitor grande, já que o hero ocupa a largura
+  toda. Se houver versão em 1080p, vale trocar.
+- Se o vídeo falhar ou demorar, aparece atrás dele uma textura de inox como
+  fallback — nunca uma foto genérica.
 
 ## Fotos dos produtos — seção "Nossas soluções"
 

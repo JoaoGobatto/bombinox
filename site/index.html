@@ -53,22 +53,12 @@
 <section class="hero">
 
   <div class="hero__media">
-    <!-- Placeholder — fica ATRÁS do vídeo. Aparece sozinho enquanto o
-         <video> não tem source; assim que o vídeo existir, ele cobre.
-         Marcado de propósito: foto de banco genérica viola a direção
-         fotográfica da marca. -->
-    <div class="hero__placeholder" aria-hidden="true">
-      <span class="hero__placeholder-tag">Vídeo pendente — <b>site/assets/hero.mp4</b></span>
-    </div>
+    <!-- Fallback em textura de inox, atrás do vídeo. Aparece se o vídeo
+         falhar ou enquanto ele carrega. -->
+    <div class="hero__placeholder" aria-hidden="true"></div>
 
-    <!-- ► VÍDEO DE FUNDO — reservado.
-         Ao receber o arquivo, coloque em site/assets/ e descomente
-         os <source> abaixo. Nada mais precisa mudar. -->
-    <video class="hero__video" autoplay muted loop playsinline>
-      <!--
-      <source src="assets/hero.webm" type="video/webm">
-      <source src="assets/hero.mp4"  type="video/mp4">
-      -->
+    <video class="hero__video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/hero.mp4" type="video/mp4">
     </video>
 
     <div class="hero__wash" aria-hidden="true"></div>

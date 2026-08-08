@@ -197,13 +197,17 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 .hero__media{ position:absolute; inset:0; z-index:-2; }
 
-/* o vídeo fica por cima do placeholder: sem source ele é transparente
-   e o placeholder aparece; com source, cobre tudo sozinho */
+/* o vídeo fica por cima do fallback de textura */
 .hero__video{
   position:relative;
   z-index:1;
   width:100%; height:100%;
   object-fit:cover;
+  /* ► ENQUADRAMENTO: o hero é mais largo que 16:9, então o vídeo é
+     escalado pela largura e o corte acontece em cima/embaixo.
+     Suba o segundo valor para mostrar mais do topo, desça para mostrar
+     mais da base. Ex: "center 35%" sobe o enquadramento. */
+  object-position:center 45%;
 }
 
 /* placeholder do vídeo: textura técnica em tom inox, nunca foto de banco */
@@ -215,19 +219,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
       rgba(23,23,23,.045) 0 2px, transparent 2px 9px),
     linear-gradient(115deg, #DCDEE3 0%, #C4C8CF 45%, #9EA4AE 100%);
 }
-
-.hero__placeholder-tag{
-  position:absolute;
-  right:22px; bottom:22px;
-  padding:7px 13px;
-  background:rgba(23,23,23,.72);
-  color:var(--branco);
-  font-size:10.5px;
-  font-weight:600;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-}
-.hero__placeholder-tag b{ font-weight:700; text-transform:none; }
 
 /* lavagem clara à esquerda — mantém o texto legível como na referência.
    z-index acima do vídeo, senão o vídeo a cobre */
