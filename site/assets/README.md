@@ -4,19 +4,55 @@ Arquivos que o site espera e ainda não existem. Enquanto faltarem, as áreas
 correspondentes mostram placeholder marcado — foto de banco genérica não entra,
 por decisão de marca (`identidade/design-guide.md`).
 
-## Vídeo do hero — `hero.mp4` ✅ em uso
+## Vídeo do hero — `hero-loop.mp4` ✅ em uso
 
-Gerado no Google Flow: bomba desmontando.
+Exploded view de bomba centrífuga, gerado no Google Flow. O arquivo em uso é
+uma versão processada do original: **1,25× de velocidade e vai-e-volta
+embutido**.
 
 | | |
 |---|---|
 | Resolução | 1280×720 (16:9) |
-| Duração | 10,01 s |
-| Codec | H.264 (`avc1`) + AAC — toca em todo navegador |
-| Tamanho | 2,42 MB |
+| Duração | 15,96 s (7,98 s de ida + 7,98 s de volta) |
+| Quadros | 30 fps · 478 quadros |
+| Codec | H.264 (`avc1`), sem áudio |
+| Tamanho | 2,70 MB |
 
-Roda `autoplay muted loop playsinline`. A trilha de áudio existe mas nunca toca;
-removê-la economizaria alguns KB, se um dia o arquivo for reexportado.
+`hero-poster.jpg` é o primeiro quadro, exibido enquanto o vídeo carrega.
+
+### Por que o vai-e-volta está no arquivo
+
+Navegador não reproduz vídeo de trás para frente: `playbackRate` negativo não
+existe, e simular com JavaScript significa reposicionar `currentTime` a cada
+quadro — cada salto força o decodificador a voltar até o keyframe anterior, o
+que engasga.
+
+Com ida e volta dentro do arquivo, o `loop` nativo resolve: a volta termina no
+quadro montado, que é exatamente onde a ida começa. Emenda invisível, custo zero
+de JavaScript.
+
+O quadro do ápice e o do reinício foram descartados no processamento — sem eles
+haveria um quadro repetido em cada virada, visível como uma travadinha.
+
+### Refazer com outra velocidade
+
+O original (10,01 s, 24 fps, com áudio) não está mais na pasta — seria publicado
+sem ser usado. Está no histórico do git:
+
+```bash
+git show ce1881d:site/assets/hero.mp4 > hero-original.mp4
+```
+
+Comando que gerou o arquivo atual (troque `1.25` pela velocidade desejada):
+
+```bash
+ffmpeg -i hero-original.mp4 \
+  -filter_complex "[0:v]setpts=PTS/1.25,fps=30,split[a][b];\
+[b]reverse,trim=start_frame=1:end_frame=239,setpts=PTS-STARTPTS[r];\
+[a][r]concat=n=2:v=1[out]" \
+  -map "[out]" -an -c:v libx264 -preset slow -crf 19 \
+  -pix_fmt yuv420p -movflags +faststart hero-loop.mp4
+```
 
 ### Enquadramento
 

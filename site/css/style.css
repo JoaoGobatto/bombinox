@@ -227,9 +227,10 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   z-index:2;
   background:linear-gradient(100deg,
     rgba(244,244,246,.97)  0%,
-    rgba(244,244,246,.93) 26%,
-    rgba(244,244,246,.55) 46%,
-    rgba(244,244,246,0)   64%);
+    rgba(244,244,246,.94) 28%,
+    rgba(244,244,246,.74) 46%,
+    rgba(244,244,246,.32) 60%,
+    rgba(244,244,246,0)   74%);
 }
 
 .hero__inner{

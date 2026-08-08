@@ -57,8 +57,12 @@
          falhar ou enquanto ele carrega. -->
     <div class="hero__placeholder" aria-hidden="true"></div>
 
-    <video class="hero__video" autoplay muted loop playsinline preload="auto">
-      <source src="assets/hero.mp4" type="video/mp4">
+    <!-- hero-loop.mp4 já tem ida e volta embutidas e roda a 1,25x, então
+         o loop nativo do navegador basta: ao terminar a volta ele reinicia
+         no quadro montado, que é exatamente onde a ida começa. -->
+    <video class="hero__video" autoplay muted loop playsinline
+           preload="auto" poster="assets/hero-poster.jpg">
+      <source src="assets/hero-loop.mp4" type="video/mp4">
     </video>
 
     <div class="hero__wash" aria-hidden="true"></div>
