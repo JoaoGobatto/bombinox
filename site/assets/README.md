@@ -26,6 +26,26 @@ perceptível.
 O texto do hero fica sobre a metade esquerda com uma lavagem clara por cima.
 Enquadrar o assunto à direita para não competir com a headline.
 
+## Fotos dos produtos — seção "Nossas soluções"
+
+Já estão cabeadas no HTML. Basta salvar os arquivos com **exatamente** estes
+nomes em `site/assets/produtos/` que eles aparecem sozinhos — nenhuma mudança
+de código é necessária. Enquanto faltarem, cada card mostra a etiqueta "foto
+pendente" com o nome esperado.
+
+| Arquivo | Produto |
+|---|---|
+| `produtos/bomba-duplo-parafuso.png` | Bomba duplo parafuso |
+| `produtos/bomba-lobulos.png` | Bomba de lóbulos |
+| `produtos/triblender.png` | Triblender / misturadores |
+
+São as mesmas fotos que já estão no site atual da Bombinox: produto recortado
+em fundo branco. A placa do card também é clara, então o recorte encaixa sem
+contorno aparente. PNG com fundo transparente funciona ainda melhor.
+
+Proporção da placa: 4:3. Imagens em outra proporção são encaixadas por dentro
+(`object-fit: contain`), sem corte nem distorção.
+
 ## Foto da seção "Sobre nós"
 
 | Arquivo | Uso |

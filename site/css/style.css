@@ -435,6 +435,177 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 
 /* =============================================================
+   NOSSAS SOLUÇÕES
+   ============================================================= */
+.sol{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding-block:88px 96px;
+  background:var(--grafite);
+  color:var(--branco);
+}
+
+/* halo roxo circular — a marca presente sem competir com o texto */
+.sol__glow{
+  position:absolute;
+  z-index:-1;
+  top:-32%; right:-14%;
+  width:min(760px,70vw);
+  aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(circle,
+    rgba(64,33,122,.85) 0%,
+    rgba(64,33,122,.34) 45%,
+    rgba(64,33,122,0) 72%);
+  pointer-events:none;
+}
+
+.sol__head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:28px;
+  flex-wrap:wrap;
+  margin-bottom:44px;
+}
+
+.sol__eyebrow{
+  margin:0 0 10px;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--inox);
+}
+
+.sol__title{
+  margin:0;
+  font-size:clamp(28px,3.1vw,42px);
+  font-weight:800;
+  line-height:1.1;
+  letter-spacing:-.01em;
+  text-transform:uppercase;
+  color:var(--branco);
+}
+
+/* botão vazado do canto superior direito, como na referência */
+.btn--ghost{
+  background:transparent;
+  color:var(--branco);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.38);
+}
+.btn--ghost:hover{
+  background:var(--branco);
+  color:var(--grafite);
+}
+
+.sol__grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:26px;
+}
+
+.card{
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border-radius:14px;
+  background:var(--branco);
+  color:var(--grafite);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 40px rgba(0,0,0,.34);
+}
+
+/* placa clara para a foto — os produtos são recortados em fundo branco */
+.card__plate{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  aspect-ratio:4/3;
+  padding:18px;
+  background:linear-gradient(160deg,#FFFFFF 0%,#EFF0F3 100%);
+}
+.card__img{
+  position:relative;
+  z-index:1;
+  width:100%; height:100%;
+  object-fit:contain;
+}
+/* aparece só enquanto a foto real não existe (o <img> se remove se falhar) */
+.card__ph{
+  position:absolute;
+  z-index:0;
+  padding:9px 14px;
+  background:rgba(23,23,23,.72);
+  color:var(--branco);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.06em;
+  line-height:1.7;
+  text-align:center;
+  text-transform:uppercase;
+}
+.card__ph b{ font-weight:700; text-transform:none; }
+
+.card__body{
+  display:flex;
+  flex-direction:column;
+  flex:1 1 auto;
+  padding:24px 24px 26px;
+  border-top:1px solid var(--cinza-linha);
+}
+
+.card__title{
+  margin:0 0 10px;
+  font-size:17px;
+  font-weight:700;
+  line-height:1.3;
+  color:var(--grafite);
+}
+
+.card__text{
+  margin:0 0 20px;
+  font-size:13.5px;
+  line-height:1.7;
+  color:var(--cinza-txt);
+}
+
+.card__link{
+  display:inline-flex;
+  align-items:center;
+  align-self:flex-start;
+  gap:9px;
+  margin-top:auto;
+  height:42px;
+  padding:0 22px;
+  border-radius:6px;
+  background:var(--roxo);
+  color:var(--branco);
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  transition:background-color .25s var(--ease);
+}
+.card__link:hover{ background:var(--roxo-esc); }
+.card__link svg{
+  width:15px; height:15px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  transition:transform .25s var(--ease);
+}
+.card__link:hover svg{ transform:translateX(3px); }
+
+
+/* =============================================================
    RESPONSIVO
    ============================================================= */
 @media (max-width:1080px){
@@ -460,12 +631,18 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
   .sobre__card{ grid-template-columns:1fr; gap:30px; padding:30px; }
   .sobre__mark{ width:140px; height:140px; }
+
+  .sol__grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
 }
 
 @media (max-width:560px){
   .sobre{ padding-block:60px 70px; }
   .hero__cta .btn{ flex:1 1 100%; }
   .hero__dots{ display:none; }
+
+  .sol{ padding-block:60px 68px; }
+  .sol__grid{ grid-template-columns:1fr; }
+  .sol__head{ align-items:flex-start; }
 }
 
 @media (prefers-reduced-motion:reduce){
