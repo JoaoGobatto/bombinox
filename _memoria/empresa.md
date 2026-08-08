@@ -34,7 +34,18 @@ industriais em inox.
 **Atributos que a marca vende:** precisão, higiene, durabilidade, confiança,
 engenharia.
 
-**Razão social (vista em etiqueta de produto):** Bombinox Ind. Com. Ltda.
+**Razão social:** Bombinox Indústria e Comércio Ltda.
+
+**Slogan (no lockup do logo):** "Solução em bombeamento"
+
+**Contato** (do rodapé do site atual):
+- Endereço: R. Kiliano Hames, 590 — Potecas, São José — SC
+- Telefones: (48) 3357-3043 · (48) 3357-0874 · (48) 3357-0727 · (48) 3380-0937
+- E-mail: bombinox@bombinox.com.br
+- Redes: Facebook, Instagram e YouTube *(URLs ainda não informadas)*
+
+**Menu do site atual:** Home, Quem Somos, Produtos, Tópicos, Dados Técnicos,
+Fale Conosco.
 
 **Fatos vindos da copy real do site atual** (bloco "Exportação Bombinox"):
 sede na região metropolitana da grande Florianópolis, exportação para todo o
