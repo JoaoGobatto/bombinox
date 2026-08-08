@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bombinox — Bombeamento sanitário em aço inox</title>
+<meta name="description" content="Fabricante de bombas centrífugas sanitárias, válvulas, conexões e misturadores em aço inox AISI 304 e 316L para alimentos, bebidas, cosméticos e farmacêutico.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="hd">
+  <a class="hd__logo" href="#">
+    <!-- PLACEHOLDER DE LOGO: wordmark provisório.
+         Ao receber identidade/logo.svg, trocar por <img> aqui. -->
+    <span class="hd__logo-text">BOMBINOX</span>
+  </a>
+
+  <nav class="hd__nav" aria-label="Navegação principal">
+    <a class="hd__link is-active" href="#">Home</a>
+    <a class="hd__link" href="#sobre">Empresa</a>
+    <a class="hd__link" href="#">Produtos</a>
+    <a class="hd__link" href="#">Aplicações</a>
+    <a class="hd__link" href="#">Blog</a>
+    <a class="hd__link" href="#">Contato</a>
+  </nav>
+
+  <div class="hd__tools">
+    <button class="hd__icon" type="button" aria-label="Buscar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.2" y1="16.2" x2="21" y2="21"/></svg>
+    </button>
+
+    <button class="hd__icon hd__icon--cart" type="button" aria-label="Orçamento — 0 itens">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2.2l2.3 11.2h9.9l2.1-8.2H7"/><circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17.5" cy="19.5" r="1.4"/></svg>
+      <span class="hd__badge">0</span>
+    </button>
+
+    <button class="hd__burger" type="button" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO — fundo reservado para vídeo
+     ============================================================ -->
+<section class="hero">
+
+  <div class="hero__media">
+    <!-- Placeholder — fica ATRÁS do vídeo. Aparece sozinho enquanto o
+         <video> não tem source; assim que o vídeo existir, ele cobre.
+         Marcado de propósito: foto de banco genérica viola a direção
+         fotográfica da marca. -->
+    <div class="hero__placeholder" aria-hidden="true">
+      <span class="hero__placeholder-tag">Vídeo pendente — <b>site/assets/hero.mp4</b></span>
+    </div>
+
+    <!-- ► VÍDEO DE FUNDO — reservado.
+         Ao receber o arquivo, coloque em site/assets/ e descomente
+         os <source> abaixo. Nada mais precisa mudar. -->
+    <video class="hero__video" autoplay muted loop playsinline>
+      <!--
+      <source src="assets/hero.webm" type="video/webm">
+      <source src="assets/hero.mp4"  type="video/mp4">
+      -->
+    </video>
+
+    <div class="hero__wash" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero__inner">
+    <span class="hero__ghost" aria-hidden="true">INOX</span>
+
+    <p class="hero__eyebrow">Bem-vindo à Bombinox</p>
+
+    <h1 class="hero__title">Bombeamento<br>sanitário em inox</h1>
+
+    <p class="hero__lead">
+      Bombas centrífugas sanitárias em AISI 304 e 316L.
+      Acabamento sanitário nas partes em contato com o produto.
+    </p>
+
+    <div class="hero__cta">
+      <a class="btn btn--roxo" href="#">Ver produtos</a>
+      <a class="btn btn--grafite" href="#">Falar com o time</a>
+    </div>
+  </div>
+
+  <div class="hero__hatch" aria-hidden="true"></div>
+
+  <div class="hero__arrows">
+    <button class="hero__arrow" type="button" aria-label="Slide anterior">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="14.5,5 7.5,12 14.5,19"/></svg>
+    </button>
+    <button class="hero__arrow hero__arrow--next" type="button" aria-label="Próximo slide">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9.5,5 16.5,12 9.5,19"/></svg>
+    </button>
+  </div>
+
+  <div class="hero__dots" role="tablist" aria-label="Slides">
+    <button class="hero__dot is-active" role="tab" aria-selected="true"  aria-label="Slide 1"></button>
+    <button class="hero__dot"           role="tab" aria-selected="false" aria-label="Slide 2"></button>
+    <button class="hero__dot"           role="tab" aria-selected="false" aria-label="Slide 3"></button>
+  </div>
+</section>
+
+<!-- ============================================================
+     SOBRE NÓS
+     ============================================================ -->
+<section class="sobre" id="sobre">
+  <div class="wrap">
+    <h2 class="sobre__kicker">Sobre nós</h2>
+
+    <div class="sobre__card">
+
+      <!-- marca d'água geométrica: rotor / fluxo circular -->
+      <svg class="sobre__mark" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="46"/>
+        <circle cx="60" cy="60" r="17"/>
+        <path d="M60 14a46 46 0 0 1 39.8 22.9L74.6 51.4A17 17 0 0 0 60 43z"/>
+        <path d="M99.8 83.1a46 46 0 0 1-79.6 0l25.2-14.5a17 17 0 0 0 29.2 0z"/>
+        <line x1="6" y1="60" x2="30" y2="60"/>
+      </svg>
+
+      <figure class="sobre__fig">
+        <!-- PLACEHOLDER DE FOTO — trocar por foto real da fábrica.
+             Sem foto da Bombinox, não entra banco de imagem. -->
+        <div class="sobre__ph">
+          <span class="sobre__ph-tag">Foto pendente<br><b>fábrica / linha de produção</b></span>
+        </div>
+      </figure>
+
+      <div class="sobre__body">
+        <h3 class="sobre__title">
+          <em>Bombinox</em> fabrica equipamentos sanitários em aço inoxidável
+        </h3>
+
+        <p>
+          Bombas centrífugas sanitárias são o nosso produto principal. O portfólio
+          é completado por válvulas, conexões, misturadores e projetos especiais
+          desenvolvidos sob a necessidade de cada linha de processo.
+        </p>
+
+        <p>
+          Trabalhamos com AISI 304 e 316L conforme a aplicação. As partes em
+          contato com o produto recebem acabamento que favorece a sanitariedade —
+          exigência das indústrias de alimentos, bebidas, cosméticos e
+          farmacêutico que atendemos.
+        </p>
+
+        <a class="btn btn--branco" href="#">Conheça a fábrica</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

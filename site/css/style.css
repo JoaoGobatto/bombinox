@@ -1,0 +1,473 @@
+/* =============================================================
+   BOMBINOX — header + hero + sobre nós
+   Referências reproduzidas: tema Wilmër (header/hero) e card
+   "About Us". Pele trocada pela identidade Bombinox conforme
+   identidade/design-guide.md
+   ============================================================= */
+
+:root{
+  --roxo:        #40217A;
+  --roxo-esc:    #351B66;
+  --grafite:     #171717;
+  --grafite-esc: #000000;
+  --branco:      #FFFFFF;
+
+  --cinza-bg:    #F4F4F6;
+  --cinza-linha: #E6E6EB;
+  --cinza-txt:   #5A5A63;
+  --inox:        #C9CCD1;
+
+  --hd-h: 68px;
+  --wrap: 1200px;
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ -webkit-text-size-adjust:100%; }
+
+body{
+  margin:0;
+  font-family:'Montserrat',system-ui,sans-serif;
+  font-size:15px;
+  line-height:1.6;
+  color:var(--grafite);
+  background:var(--branco);
+  -webkit-font-smoothing:antialiased;
+}
+
+img,svg,video{ display:block; max-width:100%; }
+a{ text-decoration:none; color:inherit; }
+button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; }
+
+.wrap{
+  width:100%;
+  max-width:var(--wrap);
+  margin-inline:auto;
+  padding-inline:24px;
+}
+
+/* Botões — bloco sólido, quina viva, caixa alta (design-guide) */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:44px;
+  padding:0 26px;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  transition:background-color .25s var(--ease), color .25s var(--ease);
+}
+.btn--roxo{    background:var(--roxo);    color:var(--branco); }
+.btn--roxo:hover{    background:var(--roxo-esc); }
+.btn--grafite{ background:var(--grafite); color:var(--branco); }
+.btn--grafite:hover{ background:var(--grafite-esc); }
+.btn--branco{  background:var(--branco);  color:var(--roxo); }
+.btn--branco:hover{  background:var(--inox); }
+
+:where(a,button):focus-visible{
+  outline:2px solid var(--roxo);
+  outline-offset:3px;
+}
+
+
+/* =============================================================
+   HEADER
+   ============================================================= */
+.hd{
+  position:relative;
+  z-index:20;
+  display:flex;
+  align-items:stretch;
+  height:var(--hd-h);
+  background:var(--branco);
+  border-bottom:1px solid var(--cinza-linha);
+}
+
+/* bloco sólido roxo à esquerda, altura cheia — igual à referência */
+.hd__logo{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 210px;
+  background:var(--roxo);
+  color:var(--branco);
+}
+.hd__logo-text{
+  font-size:17px;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+
+.hd__nav{
+  display:flex;
+  flex:1 1 auto;
+  min-width:0;
+}
+.hd__link{
+  flex:1 1 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-left:1px solid var(--cinza-linha);
+  font-size:12.5px;
+  font-weight:600;
+  letter-spacing:.04em;
+  color:var(--grafite);
+  transition:color .22s var(--ease);
+}
+.hd__link:last-child{ border-right:1px solid var(--cinza-linha); }
+.hd__link:hover,
+.hd__link.is-active{ color:var(--roxo); }
+
+.hd__tools{
+  display:flex;
+  align-items:stretch;
+  flex:0 0 auto;
+}
+.hd__icon{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:52px;
+  color:var(--grafite);
+  transition:color .22s var(--ease);
+}
+.hd__icon:hover{ color:var(--roxo); }
+.hd__icon svg{
+  width:19px; height:19px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.hd__icon--cart{ position:relative; }
+.hd__badge{
+  position:absolute;
+  top:15px; right:9px;
+  min-width:16px; height:16px;
+  padding:0 4px;
+  border-radius:50%;
+  background:var(--roxo);
+  color:var(--branco);
+  font-size:9.5px;
+  font-weight:700;
+  line-height:16px;
+  text-align:center;
+}
+
+/* quadrado roxo do menu, colado na borda direita */
+.hd__burger{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  width:var(--hd-h);
+  background:var(--roxo);
+  transition:background-color .25s var(--ease);
+}
+.hd__burger:hover{ background:var(--roxo-esc); }
+.hd__burger span{
+  width:20px; height:2px;
+  background:var(--branco);
+}
+.hd__burger span:nth-child(2){ width:14px; }
+
+
+/* =============================================================
+   HERO
+   ============================================================= */
+.hero{
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  align-items:center;
+  min-height:640px;
+  height:calc(100vh - var(--hd-h));
+  max-height:760px;
+  background:var(--cinza-bg);
+  overflow:hidden;
+}
+
+.hero__media{ position:absolute; inset:0; z-index:-2; }
+
+/* o vídeo fica por cima do placeholder: sem source ele é transparente
+   e o placeholder aparece; com source, cobre tudo sozinho */
+.hero__video{
+  position:relative;
+  z-index:1;
+  width:100%; height:100%;
+  object-fit:cover;
+}
+
+/* placeholder do vídeo: textura técnica em tom inox, nunca foto de banco */
+.hero__placeholder{
+  position:absolute; inset:0;
+  z-index:0;
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(23,23,23,.045) 0 2px, transparent 2px 9px),
+    linear-gradient(115deg, #DCDEE3 0%, #C4C8CF 45%, #9EA4AE 100%);
+}
+
+.hero__placeholder-tag{
+  position:absolute;
+  right:22px; bottom:22px;
+  padding:7px 13px;
+  background:rgba(23,23,23,.72);
+  color:var(--branco);
+  font-size:10.5px;
+  font-weight:600;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.hero__placeholder-tag b{ font-weight:700; text-transform:none; }
+
+/* lavagem clara à esquerda — mantém o texto legível como na referência.
+   z-index acima do vídeo, senão o vídeo a cobre */
+.hero__wash{
+  position:absolute; inset:0;
+  z-index:2;
+  background:linear-gradient(100deg,
+    rgba(244,244,246,.97)  0%,
+    rgba(244,244,246,.93) 26%,
+    rgba(244,244,246,.55) 46%,
+    rgba(244,244,246,0)   64%);
+}
+
+.hero__inner{
+  position:relative;
+  width:100%;
+  padding-inline-start:clamp(24px,19.8vw,400px);
+  padding-inline-end:24px;
+  padding-block:40px;
+}
+
+/* palavra fantasma atrás do título */
+.hero__ghost{
+  position:absolute;
+  top:-.46em;
+  inset-inline-start:clamp(20px,19vw,392px);
+  z-index:-1;
+  font-size:clamp(64px,7.4vw,108px);
+  font-weight:800;
+  letter-spacing:.02em;
+  line-height:1;
+  color:transparent;
+  -webkit-text-stroke:1.5px rgba(23,23,23,.065);
+  user-select:none;
+  pointer-events:none;
+}
+
+.hero__eyebrow{
+  margin:0 0 14px;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:#4A4A54;
+}
+
+.hero__title{
+  margin:0 0 20px;
+  font-size:clamp(34px,3.9vw,54px);
+  font-weight:800;
+  line-height:1.07;
+  letter-spacing:-.005em;
+  text-transform:uppercase;
+  color:var(--grafite);
+}
+
+.hero__lead{
+  margin:0 0 30px;
+  max-width:440px;
+  font-size:14px;
+  line-height:1.7;
+  color:var(--cinza-txt);
+}
+
+.hero__cta{ display:flex; flex-wrap:wrap; gap:10px; }
+
+/* faixa hachurada inferior */
+.hero__hatch{
+  position:absolute;
+  left:0; bottom:0;
+  width:min(52%,700px);
+  height:54px;
+  background:repeating-linear-gradient(-45deg,
+    rgba(23,23,23,.11) 0 1px, transparent 1px 8px);
+  pointer-events:none;
+}
+
+.hero__arrows{
+  position:absolute;
+  left:0; bottom:0;
+  display:flex;
+}
+.hero__arrow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:48px; height:48px;
+  background:var(--branco);
+  color:var(--grafite);
+  transition:background-color .25s var(--ease), color .25s var(--ease);
+}
+.hero__arrow svg{
+  width:17px; height:17px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.hero__arrow:hover{ background:var(--cinza-bg); }
+.hero__arrow--next{ background:var(--roxo); color:var(--branco); }
+.hero__arrow--next:hover{ background:var(--roxo-esc); }
+
+.hero__dots{
+  position:absolute;
+  left:50%; bottom:22px;
+  transform:translateX(-50%);
+  display:flex;
+  gap:9px;
+}
+.hero__dot{
+  width:9px; height:9px;
+  border-radius:50%;
+  background:rgba(23,23,23,.28);
+  transition:background-color .25s var(--ease), transform .25s var(--ease);
+}
+.hero__dot:hover{ transform:scale(1.2); }
+.hero__dot.is-active{ background:var(--grafite); }
+
+
+/* =============================================================
+   SOBRE NÓS
+   ============================================================= */
+.sobre{ padding-block:84px 96px; }
+
+.sobre__kicker{
+  margin:0 0 26px;
+  font-size:clamp(28px,3.1vw,42px);
+  font-weight:800;
+  letter-spacing:-.01em;
+  text-transform:uppercase;
+  color:var(--grafite);
+}
+
+.sobre__card{
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:minmax(0,45fr) minmax(0,55fr);
+  gap:44px;
+  align-items:center;
+  padding:44px;
+  border-radius:16px;
+  background:var(--roxo);
+  color:var(--branco);
+}
+
+/* rotor geométrico como marca d'água, canto superior direito */
+.sobre__mark{
+  position:absolute;
+  top:-26px; right:-22px;
+  width:190px; height:190px;
+  fill:rgba(255,255,255,.07);
+  stroke:rgba(255,255,255,.16);
+  stroke-width:1.5;
+  pointer-events:none;
+}
+
+.sobre__fig{ margin:0; }
+
+.sobre__ph{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  aspect-ratio:4/3;
+  border-radius:11px;
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(23,23,23,.05) 0 2px, transparent 2px 9px),
+    linear-gradient(115deg,#DCDEE3 0%,#C4C8CF 48%,#9EA4AE 100%);
+}
+.sobre__ph-tag{
+  padding:9px 15px;
+  background:rgba(23,23,23,.72);
+  color:var(--branco);
+  font-size:10.5px;
+  font-weight:600;
+  letter-spacing:.06em;
+  line-height:1.7;
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.sobre__title{
+  margin:0 0 18px;
+  font-size:clamp(21px,2.05vw,29px);
+  font-weight:700;
+  line-height:1.3;
+  color:rgba(255,255,255,.9);
+}
+.sobre__title em{
+  font-style:normal;
+  font-weight:800;
+  color:var(--branco);
+}
+
+.sobre__body p{
+  margin:0 0 15px;
+  font-size:14px;
+  line-height:1.75;
+  color:rgba(255,255,255,.76);
+}
+.sobre__body .btn{ margin-top:12px; }
+
+
+/* =============================================================
+   RESPONSIVO
+   ============================================================= */
+@media (max-width:1080px){
+  .hd__logo{ flex-basis:170px; }
+  .hd__link{ font-size:11.5px; }
+}
+
+@media (max-width:900px){
+  .hd__nav{ display:none; }
+  .hd__logo{ flex:1 1 auto; justify-content:flex-start; padding-inline:22px; }
+  .hd__tools{ margin-inline-start:auto; }
+
+  .hero{ height:auto; min-height:0; padding-block:70px 96px; max-height:none; }
+  .hero__inner{ padding-inline-start:24px; }
+  .hero__ghost{ inset-inline-start:20px; }
+  .hero__wash{
+    background:linear-gradient(180deg,
+      rgba(244,244,246,.95) 0%,
+      rgba(244,244,246,.86) 55%,
+      rgba(244,244,246,.72) 100%);
+  }
+  .hero__hatch{ width:70%; }
+
+  .sobre__card{ grid-template-columns:1fr; gap:30px; padding:30px; }
+  .sobre__mark{ width:140px; height:140px; }
+}
+
+@media (max-width:560px){
+  .sobre{ padding-block:60px 70px; }
+  .hero__cta .btn{ flex:1 1 100%; }
+  .hero__dots{ display:none; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{ animation:none !important; transition:none !important; }
+}
