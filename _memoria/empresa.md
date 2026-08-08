@@ -8,9 +8,11 @@
 principal) e complementa o portfólio com válvulas, conexões, misturadores e
 projetos especiais.
 **Perfil:** Empresa estabelecida, posicionamento técnico-industrial
-**Atende clientes:** Indústrias de alimentos, bebidas, cosméticos e
-farmacêutico — aplicações sanitárias onde o equipamento tem contato com o
-produto.
+**Atende clientes:** Indústrias de alimentos, bebidas, cosméticos,
+farmacêutico e químico — aplicações sanitárias onde o equipamento tem contato
+com o produto.
+**Onde fica:** região metropolitana da grande Florianópolis (SC)
+**Exportação:** exporta para todo o mundo há mais de 20 anos
 **Equipe:** *(pendente — não informado)*
 **Ferramentas:** *(pendente — não informado)*
 **Principais entregas:**
@@ -31,6 +33,17 @@ industriais em inox.
 
 **Atributos que a marca vende:** precisão, higiene, durabilidade, confiança,
 engenharia.
+
+**Razão social (vista em etiqueta de produto):** Bombinox Ind. Com. Ltda.
+
+**Fatos vindos da copy real do site atual** (bloco "Exportação Bombinox"):
+sede na região metropolitana da grande Florianópolis, exportação para todo o
+mundo há mais de 20 anos, atendimento a segmentos que vão de alimentos a
+produtos químicos, e oferta de projetos especiais além do catálogo.
+
+**Produtos com página própria no site atual:** bomba duplo parafuso, bomba de
+lóbulos, Triblender / misturadores. Também há conteúdo sobre bomba
+autoescorvante, bomba centrífuga sanitária e acessórios/conexões de inox.
 
 ---
 
