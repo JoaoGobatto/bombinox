@@ -157,8 +157,23 @@ acompanhando a parte inferior do círculo.
 
 Leitura completa: *símbolo técnico + BOMBINOX + roxo profundo + branco.*
 
-- **Arquivo:** ⚠️ **pendente** — falta `identidade/logo.svg` ou
-  `identidade/logo.png`
+- **Arquivo:** ⚠️ ainda falta o vetor. Existe
+  `identidade/logo-simbolo-extraido.png`, **extraído da marca-d'água presente
+  nas fotos de produto** — 117×131 px de origem, ampliado. Serve como
+  referência para redesenho em vetor, **não como arquivo de produção**.
+
+> ⚠️ **Divergência de cor a resolver.** No logo extraído o traço é
+> **azul-marinho**, não roxo. Medição: mediana `#1E276D`, traço puro `#142553`.
+> O print do rodapé do site atual também é azul-marinho, e os botões do site
+> atual são azuis.
+>
+> O Brand ID que originou este guia definiu roxo `#40217A`, marcando-o como
+> aproximação visual e não spec oficial. Todo o site foi construído em roxo, a
+> pedido do usuário e mantido em várias iterações.
+>
+> Se a decisão for adotar o azul real, a troca é de uma linha: a variável
+> `--roxo` em `site/css/style.css` alimenta toda a paleta. Enquanto não houver
+> decisão, o roxo permanece.
 - **Versão pra fundo escuro:** ⚠️ pendente (ex: `identidade/logo-branco.png`)
 - **Onde usar:** cabeçalho do site, slide final do carrossel (CTA), header de
   propostas, slides de apresentação, rodapé
