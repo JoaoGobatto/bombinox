@@ -380,28 +380,12 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 .sobre__fig{ margin:0; }
 
-.sobre__ph{
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.sobre__video{
+  width:100%;
   aspect-ratio:4/3;
+  object-fit:cover;
   border-radius:11px;
-  background:
-    repeating-linear-gradient(135deg,
-      rgba(23,23,23,.05) 0 2px, transparent 2px 9px),
-    linear-gradient(115deg,#DCDEE3 0%,#C4C8CF 48%,#9EA4AE 100%);
-}
-.sobre__ph-tag{
-  padding:9px 15px;
-  background:rgba(23,23,23,.72);
-  color:var(--branco);
-  font-size:10.5px;
-  font-weight:600;
-  letter-spacing:.06em;
-  line-height:1.7;
-  text-align:center;
-  text-transform:uppercase;
+  background:#C4C8CF;
 }
 
 .sobre__title{

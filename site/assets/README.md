@@ -1,111 +1,82 @@
 # Assets do site
 
-Arquivos que o site espera e ainda não existem. Enquanto faltarem, as áreas
-correspondentes mostram placeholder marcado — foto de banco genérica não entra,
-por decisão de marca (`identidade/design-guide.md`).
+## Vídeos
 
-## Vídeo do hero — `hero-once.mp4` ✅ em uso
+Ambos gerados no Google Flow, 1280×720, 24 fps, H.264, sem áudio.
 
-Exploded view de bomba centrífuga, gerado no Google Flow. O arquivo em uso tem
-**1,25× de velocidade embutida** no próprio vídeo.
+| Arquivo | Onde | Duração | Tamanho |
+|---|---|---|---|
+| `hero-bomba.mp4` | fundo do hero | 15,91 s | 3,10 MB |
+| `sobre-fabrica.mp4` | figura da seção "Sobre nós" | 5,91 s | 1,58 MB |
 
-| | |
-|---|---|
-| Resolução | 1280×720 (16:9) |
-| Duração | 8,00 s |
-| Quadros | 30 fps · 240 quadros |
-| Codec | H.264 (`avc1`), sem áudio |
-| Tamanho | 1,41 MB |
+Pôsteres: `poster-hero.jpg` e `poster-sobre.jpg` — primeiro quadro de cada,
+exibidos enquanto o vídeo carrega.
 
-`hero-poster.jpg` é o primeiro quadro, exibido enquanto o vídeo carrega.
+### Os dois têm ida e volta embutidas
 
-### Toca uma vez e congela
+O `loop` nativo do navegador fecha sem emenda porque a volta está dentro do
+arquivo. Em ambos o movimento é uma **deriva lateral lenta de câmera**, então a
+volta lê como oscilação, não como marcha a ré — ninguém percebe que inverteu.
 
-O `<video>` **não tem o atributo `loop`**. Isso basta: ao chegar no fim, o
-navegador mantém o último quadro na tela e não volta ao início. Não há
-JavaScript envolvido — tirar `loop` é a implementação inteira.
+> Isso é diferente do caso do vídeo de desmonte, descartado antes: lá a volta
+> remontava a bomba, e o olho pegava na hora. Reverter só é invisível quando o
+> que se move é a câmera, não o assunto.
 
-O quadro final é o exploded view completo, com as peças separadas. É ele que
-fica em tela permanentemente depois dos 8 segundos, então vale tratá-lo como
-imagem principal do hero: as peças se espalham para a direita e o motor fica
-sob a lavagem clara, atrás do texto.
+O quadro do ápice e o do reinício são descartados no processamento — sem isso
+cada virada teria um quadro repetido, visível como travada.
 
-**Se um dia o loop voltar a ser desejado**, basta acrescentar `loop` no
-`<video>` — mas aí o corte do último quadro para o primeiro fica seco, porque o
-vídeo começa montado e termina desmontado. Nesse caso o certo é gerar a versão
-vai-e-volta (comando no histórico, commit `a00f9db`).
+### Recorte aplicado ao vídeo do "Sobre nós"
 
-### Refazer com outra velocidade
+O bruto de origem tinha **duas cenas**: fábrica com fileira de bombas, depois um
+crossfade entre 3,2 s e 3,8 s para vasos de inox na neve, num campo de petróleo
+— fora do segmento e fora de contexto. Só os primeiros 3,0 s foram aproveitados,
+antes do início da dissolvência.
 
-O original (10,01 s, 24 fps, com áudio) não está mais na pasta — seria publicado
-sem ser usado. Está no histórico do git:
+### Cor
+
+Nenhuma correção aplicada. Testei rotação de matiz para puxar o azul dos
+motores na direção do roxo da marca e **descartei**: a rotação contamina o inox,
+que vira roxo-magenta, justamente o oposto da leitura de higiene que o material
+precisa ter.
+
+E o azul é autêntico — os motores das fotos reais de produto, nos cards de
+"Nossas soluções", são do mesmo azul. Manter cria coerência entre o hero e os
+produtos logo abaixo.
+
+### Refazer
 
 ```bash
-git show ce1881d:site/assets/hero.mp4 > hero-original.mp4
+# ida e volta, preservando todos os quadros do original
+ffmpeg -i bruto.mp4 -filter_complex \
+  "[0:v]split[a][b];[b]reverse,trim=start_frame=1:end_frame=191,\
+setpts=PTS-STARTPTS[r];[a][r]concat=n=2:v=1[out]" \
+  -map "[out]" -an -r 24 -c:v libx264 -preset slow -crf 21 \
+  -pix_fmt yuv420p -movflags +faststart saida.mp4
 ```
 
-Comando que gerou o arquivo atual (troque `1.25` pela velocidade desejada):
-
-```bash
-ffmpeg -i hero-original.mp4 \
-  -filter_complex "[0:v]setpts=PTS/1.25[out]" -map "[out]" \
-  -an -r 30 -c:v libx264 -preset slow -crf 19 \
-  -pix_fmt yuv420p -movflags +faststart hero-once.mp4
-```
-
-O `-r 30` na saída não é opcional. Passar `fps=30` dentro do `-filter_complex`
-não surte efeito aqui: a saída sai em 25 fps e cerca de 17% dos quadros do
-original são descartados.
+`end_frame` = total de quadros menos 1. Se mudar a velocidade com
+`setpts=PTS/N`, passe `-r` explicitamente na saída — `fps=` dentro do
+`-filter_complex` não surte efeito e descarta quadros.
 
 ### Enquadramento
 
-O hero é mais largo que 16:9, então o vídeo é escalado pela largura e o corte
-acontece em cima e embaixo. Para ajustar, mexer em `object-position` na regra
-`.hero__video` de `site/css/style.css`:
+O hero é mais largo que 16:9: o vídeo é escalado pela largura e o corte acontece
+em cima e embaixo. O controle é `object-position` na regra `.hero__video`; a
+lavagem clara que segura a legibilidade do texto é a `.hero__wash`, logo abaixo.
 
-```css
-object-position: center 45%;   /* menor = mostra mais do topo */
-```
+### Pendências
 
-A intensidade da lavagem clara sobre a metade esquerda (que mantém a headline
-legível) fica na regra `.hero__wash`, logo abaixo.
+- **1080p.** Os dois são 720p e ficam levemente suaves em monitor grande.
+- **Filmagem real.** Continua valendo mais que vídeo gerado, em credibilidade.
+  Ver `marketing/video-hero-briefing.md`.
 
-### Limitações conhecidas
+---
 
-- **720p** fica levemente suave em monitor grande, já que o hero ocupa a largura
-  toda. Se houver versão em 1080p, vale trocar.
-- Se o vídeo falhar ou demorar, aparece atrás dele uma textura de inox como
-  fallback — nunca uma foto genérica.
+## Fotos dos produtos — `produtos/`
 
-## Fotos dos produtos — seção "Nossas soluções"
-
-Já estão cabeadas no HTML. Basta salvar os arquivos com **exatamente** estes
-nomes em `site/assets/produtos/` que eles aparecem sozinhos — nenhuma mudança
-de código é necessária. Enquanto faltarem, cada card mostra a etiqueta "foto
-pendente" com o nome esperado.
-
-| Arquivo | Produto |
-|---|---|
-| `produtos/bomba-duplo-parafuso.png` | Bomba duplo parafuso |
-| `produtos/bomba-lobulos.png` | Bomba de lóbulos |
-| `produtos/triblender.png` | Triblender / misturadores |
-
-São as mesmas fotos que já estão no site atual da Bombinox: produto recortado
-em fundo branco. A placa do card também é clara, então o recorte encaixa sem
-contorno aparente. PNG com fundo transparente funciona ainda melhor.
-
-Proporção da placa: 4:3. Imagens em outra proporção são encaixadas por dentro
-(`object-fit: contain`), sem corte nem distorção.
-
-## Foto da seção "Sobre nós"
-
-| Arquivo | Uso |
-|---|---|
-| `fabrica.jpg` | proporção 4:3, fábrica ou linha de produção |
-
-Trocar o `<div class="sobre__ph">` por um `<img>` em `site/index.html`.
+Ver `produtos/README.md`.
 
 ## Logo
 
 Não fica aqui — vai em `identidade/logo.svg` (e `logo-branco.svg` para fundo
-escuro). Hoje o header usa um wordmark provisório em texto.
+escuro). Hoje o header e o rodapé usam um wordmark provisório em texto.
