@@ -193,6 +193,23 @@ sans-serif, fotografia de equipamento e estética técnica.
 
 ---
 
+## Exceções vigentes
+
+**Hero do site** — a pedido do usuário, segue o padrão de uma referência
+específica (estilo Imagica: escuro, centralizado, minimalista) e contraria duas
+regras deste guia:
+
+| Regra do guia | O que o hero faz |
+|---|---|
+| Títulos em caixa alta, Bold/ExtraBold | caixa baixa, peso 500 |
+| Botões em bloco sólido, sem pílula | pílula vazada |
+
+Vale só para o hero. O restante do site — seções, cards, rodapé — continua
+seguindo o guia. Se a exceção for estendida a outras áreas, atualizar as regras
+acima em vez de acumular casos especiais.
+
+---
+
 ## Observações adicionais
 
 Os valores marcados como "valor de trabalho" ou "aproximação visual" foram
