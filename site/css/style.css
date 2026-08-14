@@ -50,6 +50,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 /* Botões — bloco sólido, quina viva, caixa alta (design-guide) */
 .btn{
+  position:relative;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -60,14 +61,30 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   letter-spacing:.12em;
   text-transform:uppercase;
   white-space:nowrap;
-  transition:background-color .25s var(--ease), color .25s var(--ease);
+  will-change:transform;
+  transition:background-color .28s var(--ease), color .28s var(--ease),
+             box-shadow .28s var(--ease), transform .28s var(--ease);
 }
-.btn--roxo{    background:var(--roxo);    color:var(--branco); }
-.btn--roxo:hover{    background:var(--roxo-esc); }
+.btn:hover{ transform:translateY(-2px); }
+.btn:active{ transform:translateY(0); transition-duration:.08s; }
+
+.btn--roxo{ background:var(--roxo); color:var(--branco); }
+.btn--roxo:hover{
+  background:var(--roxo-esc);
+  box-shadow:0 12px 26px -8px rgba(64,33,122,.85);
+}
+
 .btn--grafite{ background:var(--grafite); color:var(--branco); }
-.btn--grafite:hover{ background:var(--grafite-esc); }
-.btn--branco{  background:var(--branco);  color:var(--roxo); }
-.btn--branco:hover{  background:var(--inox); }
+.btn--grafite:hover{
+  background:var(--grafite-esc);
+  box-shadow:0 12px 26px -8px rgba(0,0,0,.6);
+}
+
+.btn--branco{ background:var(--branco); color:var(--roxo); }
+.btn--branco:hover{
+  background:var(--branco);
+  box-shadow:0 12px 28px -8px rgba(0,0,0,.45);
+}
 
 :where(a,button):focus-visible{
   outline:2px solid var(--roxo);
@@ -123,8 +140,20 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   transition:color .22s var(--ease);
 }
 .hd__link:last-child{ border-right:1px solid rgba(255,255,255,.12); }
+.hd__link{ position:relative; }
+.hd__link::after{
+  content:"";
+  position:absolute;
+  left:50%; bottom:0;
+  width:0; height:2px;
+  background:var(--branco);
+  transform:translateX(-50%);
+  transition:width .3s var(--ease);
+}
 .hd__link:hover,
 .hd__link.is-active{ color:var(--branco); }
+.hd__link:hover::after,
+.hd__link.is-active::after{ width:34px; }
 
 .hd__tools{
   display:flex;
@@ -430,11 +459,24 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   background:transparent;
   color:var(--branco);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.38);
+  overflow:hidden;
+  isolation:isolate;
+}
+.btn--ghost::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:var(--branco);
+  transform:scaleY(0);
+  transform-origin:bottom;
+  transition:transform .34s var(--ease);
 }
 .btn--ghost:hover{
-  background:var(--branco);
   color:var(--grafite);
+  box-shadow:inset 0 0 0 1px var(--branco);
 }
+.btn--ghost:hover::before{ transform:scaleY(1); }
 
 .sol__grid{
   display:grid;
@@ -442,117 +484,117 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   gap:26px;
 }
 
-/* card escuro com janela clara para o produto: a peça continua sobre
-   fundo claro, mas o card deixa de ser um retângulo branco colado no escuro */
 .card{
-  position:relative;
   display:flex;
   flex-direction:column;
-  padding:14px 14px 0;
-  border-radius:18px;
-  background:rgba(255,255,255,.045);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.09);
-  color:var(--branco);
-  transition:transform .35s var(--ease), background-color .35s var(--ease),
-             box-shadow .35s var(--ease);
+  overflow:hidden;
+  border-radius:14px;
+  background:var(--branco);
+  color:var(--grafite);
+  box-shadow:0 2px 10px rgba(0,0,0,.22);
+  transition:transform .38s var(--ease), box-shadow .38s var(--ease);
 }
 .card:hover{
-  transform:translateY(-6px);
-  background:rgba(255,255,255,.075);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.22),
-             0 26px 54px rgba(0,0,0,.42);
+  transform:translateY(-7px);
+  box-shadow:0 24px 50px -12px rgba(0,0,0,.6),
+             0 0 0 1px rgba(64,33,122,.55);
 }
+/* leve aproximação da peça, dá vida sem mexer no layout */
+.card__img{ transition:transform .55s var(--ease); }
+.card:hover .card__img{ transform:scale(1.045); }
 
+/* placa clara para a foto — os produtos são recortados em fundo branco */
 .card__plate{
   position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
-  aspect-ratio:1/1;
-  padding:26px;
-  border-radius:12px;
-  overflow:hidden;
-  background:radial-gradient(120% 120% at 50% 18%,#FFFFFF 0%,#EDEEF2 62%,#DEE0E6 100%);
+  aspect-ratio:4/3;
+  padding:18px;
+  background:var(--branco);
 }
+/* absoluta de propósito: no fluxo, uma foto retrato estica a placa e
+   desalinha a linha de cards */
 .card__img{
   position:absolute;
-  inset:26px;
-  width:calc(100% - 52px);
-  height:calc(100% - 52px);
+  z-index:1;
+  inset:18px;
+  width:calc(100% - 36px);
+  height:calc(100% - 36px);
   object-fit:contain;
-  mix-blend-mode:multiply;
-  transition:transform .5s var(--ease);
 }
-.card:hover .card__img{ transform:scale(1.05); }
+/* aparece só enquanto a foto real não existe (o <img> se remove se falhar) */
+.card__ph{
+  position:absolute;
+  z-index:0;
+  padding:9px 14px;
+  background:rgba(23,23,23,.72);
+  color:var(--branco);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.06em;
+  line-height:1.7;
+  text-align:center;
+  text-transform:uppercase;
+}
+.card__ph b{ font-weight:700; text-transform:none; }
 
 .card__body{
   display:flex;
   flex-direction:column;
   flex:1 1 auto;
-  padding:22px 10px 24px;
-}
-
-.card__meta{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:12px;
-}
-.card__tag{
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.5);
-}
-/* numeração de catálogo — leitura técnica, não decorativa */
-.card__num{
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.1em;
-  color:rgba(255,255,255,.28);
-  font-variant-numeric:tabular-nums;
+  padding:24px 24px 26px;
+  border-top:1px solid var(--cinza-linha);
 }
 
 .card__title{
   margin:0 0 10px;
-  font-size:18px;
-  font-weight:600;
-  line-height:1.32;
-  letter-spacing:-.005em;
-  color:var(--branco);
+  font-size:17px;
+  font-weight:700;
+  line-height:1.3;
+  color:var(--grafite);
 }
 
 .card__text{
-  margin:0 0 22px;
+  margin:0 0 20px;
   font-size:13.5px;
   line-height:1.7;
-  color:rgba(255,255,255,.58);
+  color:var(--cinza-txt);
 }
 
-/* o card inteiro é o link: some o botão sólido repetido três vezes */
-.card__go{
+.card__link{
   display:inline-flex;
   align-items:center;
+  align-self:flex-start;
   gap:9px;
   margin-top:auto;
+  height:42px;
+  padding:0 22px;
+  border-radius:6px;
+  background:var(--roxo);
+  color:var(--branco);
   font-size:11.5px;
   font-weight:700;
-  letter-spacing:.12em;
+  letter-spacing:.1em;
   text-transform:uppercase;
-  color:var(--branco);
+  transition:background-color .28s var(--ease), box-shadow .28s var(--ease),
+             transform .28s var(--ease);
 }
-.card__go svg{
+.card__link:hover{
+  background:var(--roxo-esc);
+  box-shadow:0 12px 24px -8px rgba(64,33,122,.9);
+  transform:translateY(-2px);
+}
+.card__link svg{
   width:15px; height:15px;
   fill:none;
   stroke:currentColor;
   stroke-width:2;
   stroke-linecap:round;
   stroke-linejoin:round;
-  transition:transform .3s var(--ease);
+  transition:transform .25s var(--ease);
 }
-.card:hover .card__go svg{ transform:translateX(5px); }
+.card__link:hover svg{ transform:translateX(3px); }
 
 
 /* =============================================================
@@ -677,9 +719,12 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   transition:transform .3s var(--ease), box-shadow .3s var(--ease);
 }
 .post:hover{
-  transform:translateY(-5px);
-  box-shadow:0 26px 56px rgba(0,0,0,.36);
+  transform:translateY(-7px);
+  box-shadow:0 30px 60px -14px rgba(0,0,0,.5),
+             0 0 0 1px rgba(64,33,122,.35);
 }
+.post__rule{ transition:width .38s var(--ease); }
+.post:hover .post__rule{ width:64px; }
 
 .post__rule{
   width:40px; height:3px;
