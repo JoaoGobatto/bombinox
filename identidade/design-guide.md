@@ -210,18 +210,36 @@ sans-serif, fotografia de equipamento e estética técnica.
 
 ## Exceções vigentes
 
-**Hero do site** — a pedido do usuário, segue o padrão de uma referência
-específica (estilo Imagica: escuro, centralizado, minimalista) e contraria duas
-regras deste guia:
+**O site é escuro.** A pedido do usuário, a página inteira roda sobre uma rampa
+de tons escuros contínua, e não sobre branco:
 
-| Regra do guia | O que o hero faz |
+| | |
 |---|---|
-| Títulos em caixa alta, Bold/ExtraBold | caixa baixa, peso 500 |
-| Botões em bloco sólido, sem pílula | pílula vazada |
+| `#08080B` | hero |
+| `#0D0D12` | base da página |
+| `#121218` | fim de "Sobre nós" |
+| `#17171E` | fim de "Exportação" |
+| `#1C1C24` | faixa dos artigos |
 
-Vale só para o hero. O restante do site — seções, cards, rodapé — continua
-seguindo o guia. Se a exceção for estendida a outras áreas, atualizar as regras
-acima em vez de acumular casos especiais.
+Cada seção termina no tom em que a próxima começa, então não há emenda entre
+elas. O branco continua presente, mas invertido de papel: em vez de fundo
+dominante, virou a superfície dos cards e o texto. A sensação de higiene passou
+a vir do contraste e do inox das fotos, não do fundo.
+
+**Hero** — segue o padrão de uma referência específica (estilo Imagica:
+centralizado, minimalista) e usa caixa baixa em peso 500, além de botão em
+pílula vazada.
+
+| Regra do guia | O que o site faz |
+|---|---|
+| Fundo principal branco, base de quase tudo | rampa escura contínua |
+| Títulos em caixa alta, Bold/ExtraBold | hero em caixa baixa, peso 500 |
+| Botões em bloco sólido, sem pílula | hero em pílula vazada |
+
+As demais regras seguem valendo — roxo como destaque, geometria circular,
+sans-serif, direção fotográfica, lista de proibições. Se o site escuro for
+confirmado como definitivo, reescrever a seção **Cores** deste guia em vez de
+manter a contradição registrada aqui.
 
 ---
 

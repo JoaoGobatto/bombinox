@@ -17,6 +17,13 @@
   --cinza-txt:   #5A5A63;
   --inox:        #C9CCD1;
 
+  /* rampa escura contínua da página */
+  --d0: #08080B;
+  --d1: #0D0D12;
+  --d2: #121218;
+  --d3: #17171E;
+  --d4: #1C1C24;
+
   --hd-h: 68px;
   --wrap: 1200px;
 
@@ -33,7 +40,7 @@ body{
   font-size:15px;
   line-height:1.6;
   color:var(--grafite);
-  background:var(--branco);
+  background:var(--d1);
   -webkit-font-smoothing:antialiased;
 }
 
@@ -225,7 +232,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   height:100vh;
   max-height:900px;
   padding-top:var(--hd-h);
-  background:var(--grafite-esc);
+  background:var(--d0);
   overflow:hidden;
 }
 
@@ -332,7 +339,10 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 /* =============================================================
    SOBRE NÓS
    ============================================================= */
-.sobre{ padding-block:84px 96px; }
+.sobre{
+  padding-block:96px 104px;
+  background:linear-gradient(180deg,var(--d0) 0%,var(--d2) 100%);
+}
 
 .sobre__kicker{
   margin:0 0 26px;
@@ -340,7 +350,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   font-weight:800;
   letter-spacing:-.01em;
   text-transform:uppercase;
-  color:var(--grafite);
+  color:var(--branco);
 }
 
 .sobre__card{
@@ -406,8 +416,8 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   position:relative;
   isolation:isolate;
   overflow:hidden;
-  padding-block:88px 96px;
-  background:var(--grafite);
+  padding-block:96px 104px;
+  background:linear-gradient(180deg,var(--d2) 0%,var(--d1) 100%);
   color:var(--branco);
 }
 
@@ -607,7 +617,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   position:relative;
   overflow:hidden;
   padding-block:96px 200px;
-  background:var(--grafite);
+  background:linear-gradient(180deg,var(--d1) 0%,var(--d3) 100%);
   color:var(--branco);
   text-align:center;
 }
@@ -695,7 +705,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 }
 
 .expo__bottom{
-  background:var(--cinza-bg);
+  background:var(--d4);
   padding-bottom:132px;
 }
 
@@ -758,24 +768,34 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .posts__dot{
   width:9px; height:9px;
   border-radius:50%;
-  background:rgba(23,23,23,.24);
+  background:rgba(255,255,255,.22);
   transition:background-color .25s var(--ease), transform .25s var(--ease);
 }
 .posts__dot:hover{ transform:scale(1.2); }
-.posts__dot.is-active{ background:var(--roxo); }
+.posts__dot.is-active{ background:var(--branco); }
 
 
 /* =============================================================
    RODAPÉ
    ============================================================= */
 .ft{
+  position:relative;
   background:var(--roxo);
   color:rgba(255,255,255,.74);
   font-size:13.5px;
   line-height:1.75;
 }
 
+.ft::before{
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0;
+  height:190px;
+  background:linear-gradient(180deg,var(--d4) 0%,rgba(64,33,122,0) 100%);
+  pointer-events:none;
+}
 .ft__grid{
+  position:relative;
   display:grid;
   grid-template-columns:1.5fr 1fr 1.35fr .8fr;
   gap:48px;
