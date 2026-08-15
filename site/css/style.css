@@ -726,7 +726,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 .expo__bottom{
   background:var(--d4);
-  padding-bottom:132px;
+  padding-bottom:96px;
 }
 
 /* os cards sobem e atravessam a fronteira escuro→claro */
@@ -779,20 +779,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 .post .card__link{ align-self:flex-start; margin-top:auto; }
 
-.posts__dots{
-  display:flex;
-  justify-content:center;
-  gap:9px;
-  margin-top:38px;
-}
-.posts__dot{
-  width:9px; height:9px;
-  border-radius:50%;
-  background:rgba(255,255,255,.22);
-  transition:background-color .25s var(--ease), transform .25s var(--ease);
-}
-.posts__dot:hover{ transform:scale(1.2); }
-.posts__dot.is-active{ background:var(--branco); }
 
 
 /* =============================================================
@@ -976,7 +962,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   .expo__cta .btn{ flex:1 1 100%; }
   .posts{ grid-template-columns:1fr; margin-top:-90px; }
   .posts > :last-child{ grid-column:auto; }
-  .expo__bottom{ padding-bottom:56px; }
+  .expo__bottom{ padding-bottom:48px; }
 
   .ft__grid{ grid-template-columns:1fr; gap:34px; padding-block:48px 40px; }
   .ft__desc{ max-width:none; }
