@@ -44,6 +44,20 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
+/* Grão finíssimo sobre a página inteira. Degradê escuro em tela grande
+   mostra bandeamento — faixas de cor visíveis. O ruído quebra a
+   transição e é o que separa um degradê bruto de um natural. */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:140px 140px;
+}
+
 img,svg,video{ display:block; max-width:100%; }
 a{ text-decoration:none; color:inherit; }
 button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; }
@@ -421,18 +435,23 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   color:var(--branco);
 }
 
-/* halo roxo circular — a marca presente sem competir com o texto */
+/* Halo roxo. Geometria calculada para o brilho chegar a zero ANTES de
+   tocar qualquer borda da seção: raio 440px, gradiente zerado em 64%
+   (282px), centro a 320px do topo e 340px da direita. Sem isso o
+   overflow:hidden fatia o halo e deixa uma linha reta na emenda. */
 .sol__glow{
   position:absolute;
-  z-index:-1;
-  top:-32%; right:-14%;
-  width:min(760px,70vw);
-  aspect-ratio:1;
-  border-radius:50%;
-  background:radial-gradient(circle,
-    rgba(64,33,122,.85) 0%,
-    rgba(64,33,122,.34) 45%,
-    rgba(64,33,122,0) 72%);
+  z-index:-1;   /* atrás do conteúdo: com 0, elemento posicionado pinta
+                   acima de conteúdo estático e lava os cards de roxo */
+  top:-120px; right:-100px;
+  width:880px; height:880px;
+  background:radial-gradient(circle at center,
+    rgba(64,33,122,.50)  0%,
+    rgba(64,33,122,.34) 22%,
+    rgba(64,33,122,.18) 38%,
+    rgba(64,33,122,.07) 50%,
+    rgba(64,33,122,.02) 58%,
+    rgba(64,33,122,0)   64%);
   pointer-events:none;
 }
 
@@ -622,29 +641,30 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   text-align:center;
 }
 
-/* halo espelhado em relação ao da seção de soluções — dá ritmo diagonal */
+/* espelhado em relação ao da seção de soluções — mesma geometria segura */
 .expo__glow{
   position:absolute;
   z-index:0;
-  bottom:-30%; left:-12%;
-  width:min(720px,66vw);
-  aspect-ratio:1;
-  border-radius:50%;
-  background:radial-gradient(circle,
-    rgba(64,33,122,.78) 0%,
-    rgba(64,33,122,.30) 46%,
-    rgba(64,33,122,0) 72%);
+  bottom:-120px; left:-100px;
+  width:880px; height:880px;
+  background:radial-gradient(circle at center,
+    rgba(64,33,122,.46)  0%,
+    rgba(64,33,122,.31) 22%,
+    rgba(64,33,122,.17) 38%,
+    rgba(64,33,122,.06) 50%,
+    rgba(64,33,122,.02) 58%,
+    rgba(64,33,122,0)   64%);
   pointer-events:none;
 }
 
 .expo__rings{
   position:absolute;
   z-index:0;
-  top:-90px; right:-110px;
-  width:min(430px,44vw);
+  top:40px; right:30px;
+  width:min(360px,32vw);
   height:auto;
   fill:none;
-  stroke:rgba(255,255,255,.07);
+  stroke:rgba(255,255,255,.05);
   stroke-width:1.5;
   pointer-events:none;
 }
