@@ -2,6 +2,12 @@
 
 > Memória central do negócio. O Claude lê esse arquivo antes de cada resposta.
 
+> ⚠️ **Relação:** a Bombinox é **cliente em prospecção**, não a empresa do
+> usuário. O site foi construído por conta própria, sem contrato, para ser
+> usado como argumento de venda. O `/instalar` aplicou o perfil "Empresa" antes
+> de isso ficar claro — se outros clientes entrarem, vale trocar para o perfil
+> Freelancer ou Agência, com uma pasta por cliente.
+
 **Nome:** Bombinox
 **Negócio:** Indústria — fabricante de equipamentos industriais em aço inoxidável
 **O que faz:** Fabrica bombas centrífugas sanitárias em aço inox (produto
