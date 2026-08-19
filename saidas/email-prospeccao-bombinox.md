@@ -33,7 +33,7 @@ Olá, [nome],
 Meu nome é [seu nome] e trabalho com sites para indústria.
 
 Fiz uma versão nova do site da Bombinox por conta própria, antes de falar com
-vocês. Está no ar aqui: **[link]**
+vocês. Está no ar aqui: **https://bombinox.vercel.app**
 
 Fiz sem pedir porque é mais rápido mostrar do que explicar. Quatro coisas me
 chamaram atenção no site atual:
@@ -81,7 +81,12 @@ Quinze minutos no telefone resolvem.
 
 ## Pendências que travam o envio
 
-1. O site precisa estar publicado num endereço estável para virar o `[link]`.
-2. `canonical` e `og:url` estão apontando para `bombinox.com.br` — ajustar para
-   o domínio de demonstração, senão o preview do link fica errado justamente no
-   argumento que o e-mail levanta.
+1. ~~Endereço estável~~ — resolvido: https://bombinox.vercel.app
+2. ~~Ajustar canonical e og:url~~ — resolvido.
+3. **Abrir https://bombinox.vercel.app no celular antes de enviar.** Não consegui verificar o deploy
+   daqui: o proxy da minha sessão bloqueia `vercel.app`. Confira que o vídeo do
+   topo roda, que as três fotos de produto aparecem e que o botão de orçamento
+   abre o e-mail preenchido.
+4. **Testar a prévia do link.** Cole https://bombinox.vercel.app numa conversa de WhatsApp com você
+   mesmo: tem que aparecer imagem, título e descrição. É o primeiro argumento
+   do e-mail — se falhar, o e-mail se contradiz.
