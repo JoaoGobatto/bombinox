@@ -2,6 +2,10 @@
 
 > Trocar tudo entre `[colchetes]` antes de enviar.
 
+**Regra que rege este texto:** toda afirmação precisa sobreviver ao clique no
+link. O prospect vai abrir o site enquanto lê. Qualquer problema apontado que o
+demo não resolva vira argumento contra nós.
+
 ---
 
 ## Assunto — três opções
@@ -9,20 +13,18 @@
 **1. Recomendado**
 > Refiz o site da Bombinox — já está no ar
 
-Funciona porque não pede nada e entrega algo. Curiosidade imediata: *como assim,
-refez?* Quem trabalha em indústria abre.
+Não pede nada e entrega algo. Curiosidade imediata: *como assim, refez?*
 
-**2. Se quiser puxar pelo problema**
-> O site da Bombinox some quando alguém compartilha o link
+**2. Se quiser abrir pelo achado concreto**
+> Achei um problema nas fotos de produto do site da Bombinox
 
-Mais agressivo. Abre bem, mas exige que a primeira linha entregue rápido, senão
-soa a vendedor.
+Mais específico e mais difícil de ignorar, porque é sobre algo que eles não
+sabem. Exige que a primeira linha entregue rápido.
 
-**3. Se quiser puxar pela exportação**
-> 20 anos exportando, site só em português
+**3. Direto ao ponto**
+> Uma versão nova do site da Bombinox, pronta para você olhar
 
-O melhor argumento de receita que eles têm parado. Use este se souber que quem
-recebe cuida de comercial ou exportação.
+Mais seco e mais seguro. Use se o destinatário for diretoria.
 
 ---
 
@@ -32,63 +34,77 @@ Olá, [nome],
 
 Meu nome é [seu nome] e trabalho com sites para indústria.
 
-Fiz uma versão nova do site da Bombinox por conta própria, antes de falar com
-vocês. Está no ar aqui: **https://bombinox.vercel.app**
+Refiz o site da Bombinox por conta própria, antes de falar com vocês, porque é
+mais rápido mostrar do que explicar. Está no ar aqui:
 
-Fiz sem pedir porque é mais rápido mostrar do que explicar. Quatro coisas me
-chamaram atenção no site atual:
+**https://bombinox.vercel.app**
 
-- **O link não gera pré-visualização.** Quando alguém manda o site da Bombinox
-  no WhatsApp ou no LinkedIn, aparece só o endereço cru, sem imagem nem
-  descrição. Numa venda que anda por indicação, essa é a primeira impressão.
+Enquanto trabalhava nas imagens, encontrei uma coisa que talvez vocês não
+saibam: **as fotos de produto do site têm marca-d'água e restos de texto de
+algum documento antigo.** Ficam invisíveis sobre fundo branco e aparecem em
+qualquer outro fundo. Limpei as três antes de usar.
 
-- **Não existe versão em inglês.** A própria página de exportação diz que a
-  empresa exporta para todo o mundo há mais de 20 anos — e o site inteiro está
-  só em português.
+O que muda na versão que montei, e você consegue conferir no próprio link:
 
-- **Não há especificação técnica em lugar nenhum.** Vazão, pressão, temperatura,
-  tipo de conexão. É o que o engenheiro de processo procura antes de pedir
-  orçamento; sem isso ele pede em outro lugar.
+- **O pedido de orçamento já sai preenchido** com equipamento, aplicação,
+  produto bombeado, vazão, pressão e material. O contato chega qualificado, em
+  vez de um "gostaria de um orçamento" que consome duas trocas de e-mail até
+  virar algo útil.
+- **Funciona no celular**, que é de onde a maioria abre um link recebido.
+- **O link mostra prévia** quando compartilhado no WhatsApp ou no LinkedIn:
+  imagem, título e descrição, em vez do endereço cru.
 
-- **As fotos de produto têm marca-d'água e restos de texto** de algum documento
-  antigo. Ficam invisíveis sobre fundo branco e aparecem em qualquer outro.
+Se fizer sentido, os próximos passos naturais seriam a **versão em inglês** —
+vocês exportam há mais de 20 anos e o site é só em português — e as **fichas
+técnicas por produto**, com vazão, pressão e tipo de conexão, que é o que o
+engenheiro de processo procura antes de pedir orçamento. Nenhuma das duas está
+no link ainda; são o passo seguinte, e a segunda depende de dado que só vocês
+têm.
 
-Na versão que montei, o pedido de orçamento já sai do site preenchido com
-equipamento, aplicação, vazão, pressão e material. O contato chega qualificado,
-em vez de um "gostaria de um orçamento" que consome duas trocas de e-mail até
-virar algo útil.
-
-Se fizer sentido, eu respondo com o que falta para colocar no domínio de vocês.
-Quinze minutos no telefone resolvem.
+Quinze minutos no telefone resolvem se vale continuar.
 
 [seu nome]
 [telefone] · [e-mail]
 
 ---
 
+## O que mudou em relação à primeira versão, e por quê
+
+A primeira versão listava quatro problemas do site atual e emendava em "na
+versão que montei", sugerindo que os quatro estavam resolvidos. **Dois não
+estavam** — versão em inglês e ficha técnica — e um terceiro eu não tinha como
+verificar. Um prospect que clica em trinta segundos derruba o argumento inteiro.
+
+Agora a estrutura é outra:
+
+1. **Um achado só, verificado por mim** (a marca-d'água). Prova que houve
+   trabalho real, não template. É o que nenhum concorrente vai ter.
+2. **Três melhorias que ele confere no link.** Nenhuma promessa fora do que
+   está no ar.
+3. **Inglês e ficha técnica aparecem como próximo passo, ditos como tal.** Vira
+   roadmap em vez de promessa vazia — e abre a segunda conversa, que é onde o
+   projeto cresce.
+
+---
+
 ## Notas de envio
 
-- **Anexe nada.** Um link só. Anexo em primeiro contato cai em spam e ninguém
-  abre.
-- **Para quem enviar:** de preferência comercial ou diretoria, não o e-mail
-  geral. Se só houver `bombinox@bombinox.com.br`, escreva no assunto para quem é.
-- **Não fale de preço neste e-mail.** O objetivo é resposta, não proposta. Preço
-  antes de conversa vira comparação de tabela.
-- **Se não responderem em 5 a 7 dias**, um retorno curto no mesmo encadeamento:
-  *"Subiu alguma dúvida sobre o link que mandei?"* — sem reenviar o argumento
-  todo.
-- **Antes de enviar, confira o site no celular.** É de onde vão abrir.
+- **Sem anexo.** Um link só. Anexo em primeiro contato cai em spam.
+- **Sem preço.** O objetivo é resposta, não proposta.
+- **Para quem enviar:** de preferência comercial ou diretoria. Se só houver
+  `bombinox@bombinox.com.br`, diga no assunto para quem é.
+- **Se não responderem em 5 a 7 dias**, retorno curto no mesmo encadeamento:
+  *"Subiu alguma dúvida sobre o link que mandei?"*
 
-## Pendências que travam o envio
+## Antes de apertar enviar
 
-1. ~~Endereço estável~~ — resolvido: https://bombinox.vercel.app
-2. ~~Ajustar canonical e og:url~~ — resolvido.
-3. ~~Links de rede social~~ — resolvido: Facebook e Instagram ligados,
-   YouTube removido.
-4. **Abrir https://bombinox.vercel.app no celular antes de enviar.** Não consegui verificar o deploy
-   daqui: o proxy da minha sessão bloqueia `vercel.app`. Confira que o vídeo do
-   topo roda, que as três fotos de produto aparecem e que o botão de orçamento
-   abre o e-mail preenchido.
-5. **Testar a prévia do link.** Cole https://bombinox.vercel.app numa conversa de WhatsApp com você
-   mesmo: tem que aparecer imagem, título e descrição. É o primeiro argumento
-   do e-mail — se falhar, o e-mail se contradiz.
+1. **Abrir https://bombinox.vercel.app no celular.** Confirmar que o vídeo do
+   topo roda, que as três fotos aparecem e que o menu abre.
+2. **Testar a prévia:** colar o link numa conversa de WhatsApp consigo mesmo.
+   Tem que aparecer imagem, título e descrição. É uma das três afirmações do
+   e-mail — se falhar, tire a linha antes de enviar.
+3. **Clicar em "Solicitar orçamento"** e verificar que o e-mail abre com os
+   campos preenchidos.
+
+> Não consegui fazer nenhuma das três daqui: o proxy da minha sessão bloqueia
+> `vercel.app`. São dois minutos e valem o e-mail inteiro.
