@@ -83,10 +83,12 @@ Quinze minutos no telefone resolvem.
 
 1. ~~Endereço estável~~ — resolvido: https://bombinox.vercel.app
 2. ~~Ajustar canonical e og:url~~ — resolvido.
-3. **Abrir https://bombinox.vercel.app no celular antes de enviar.** Não consegui verificar o deploy
+3. ~~Links de rede social~~ — resolvido: Facebook e Instagram ligados,
+   YouTube removido.
+4. **Abrir https://bombinox.vercel.app no celular antes de enviar.** Não consegui verificar o deploy
    daqui: o proxy da minha sessão bloqueia `vercel.app`. Confira que o vídeo do
    topo roda, que as três fotos de produto aparecem e que o botão de orçamento
    abre o e-mail preenchido.
-4. **Testar a prévia do link.** Cole https://bombinox.vercel.app numa conversa de WhatsApp com você
+5. **Testar a prévia do link.** Cole https://bombinox.vercel.app numa conversa de WhatsApp com você
    mesmo: tem que aparecer imagem, título e descrição. É o primeiro argumento
    do e-mail — se falhar, o e-mail se contradiz.
