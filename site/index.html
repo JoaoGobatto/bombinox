@@ -60,7 +60,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=10">
+<link rel="stylesheet" href="css/style.css?v=11">
 </head>
 <body>
 <a class="pular" href="#solucoes">Pular para o conteúdo</a>
@@ -92,10 +92,23 @@
 
     <a class="hd__cta" href="#contato">Orçamento</a>
 
-    <button class="hd__burger" type="button" aria-label="Abrir menu">
+    <button class="hd__burger" type="button" id="btn-menu"
+            aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
       <span></span><span></span><span></span>
     </button>
   </div>
+
+  <!-- Menu do celular. Abaixo de 900px a navegação horizontal não cabe;
+       sem isto o botão hambúrguer não levava a lugar nenhum. -->
+  <nav class="menu" id="menu-mobile" aria-label="Navegação do celular" hidden>
+    <a href="/">Home</a>
+    <a href="#sobre">Empresa</a>
+    <a href="#solucoes">Produtos</a>
+    <a href="#aplicacoes">Aplicações</a>
+    <a href="#artigos">Blog</a>
+    <a href="#contato">Contato</a>
+    <a class="menu__fone" href="tel:+554833573043">(48) 3357-3043</a>
+  </nav>
 </header>
 
 <!-- ============================================================
@@ -516,5 +529,31 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var b = document.getElementById('btn-menu'),
+      m = document.getElementById('menu-mobile');
+  if (!b || !m) return;
+
+  function fechar(){
+    m.hidden = true;
+    b.setAttribute('aria-expanded','false');
+    b.setAttribute('aria-label','Abrir menu');
+    document.documentElement.classList.remove('trava');
+  }
+  function abrir(){
+    m.hidden = false;
+    b.setAttribute('aria-expanded','true');
+    b.setAttribute('aria-label','Fechar menu');
+    document.documentElement.classList.add('trava');
+  }
+
+  b.addEventListener('click', function(){ m.hidden ? abrir() : fechar(); });
+  m.addEventListener('click', function(e){ if (e.target.tagName === 'A') fechar(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') fechar(); });
+  // volta ao menu horizontal ao alargar a janela com o painel aberto
+  addEventListener('resize', function(){ if (innerWidth > 900) fechar(); });
+})();
+</script>
 </body>
 </html>

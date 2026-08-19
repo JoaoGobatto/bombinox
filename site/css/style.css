@@ -218,6 +218,40 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);
 }
 
+/* painel do menu no celular */
+.menu{
+  position:absolute;
+  top:var(--hd-h); left:0; right:0;
+  display:flex;
+  flex-direction:column;
+  padding:8px 0 14px;
+  background:rgba(8,8,11,.97);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.menu[hidden]{ display:none; }
+.menu a{
+  padding:14px 24px;
+  font-size:14px;
+  font-weight:600;
+  color:rgba(255,255,255,.86);
+}
+.menu a:hover{ color:var(--branco); background:rgba(255,255,255,.06); }
+.menu__fone{
+  margin-top:6px;
+  border-top:1px solid rgba(255,255,255,.1);
+  color:var(--branco) !important;
+}
+.trava{ overflow:hidden; }
+
+/* hambúrguer vira X quando aberto */
+.hd__burger span{ transition:transform .28s var(--ease), opacity .2s var(--ease); }
+.hd__burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+.hd__burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.hd__burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+@media (min-width:901px){ .menu{ display:none !important; } }
+
 /* quadrado roxo do menu, colado na borda direita */
 .hd__burger{
   display:flex;
@@ -1123,6 +1157,14 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   .cta{ padding-block:72px 80px; }
   .cta__acoes .btn{ flex:1 1 100%; }
   .hd__fone{ display:none; }
+}
+
+@media (max-width:420px){
+  .hd__logo{ padding-inline:16px; }
+  .hd__logo-text{ font-size:15px; letter-spacing:.1em; }
+  .hd__cta{ padding-inline:14px; font-size:10.5px; letter-spacing:.06em; }
+  .hd__burger{ width:56px; }
+  .menu a{ padding-inline:16px; }
   .ft__desc{ max-width:none; }
 }
 
