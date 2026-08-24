@@ -620,20 +620,26 @@ section[id], [id="artigos"]{ scroll-margin-top:96px; }
   position:absolute;
   inset:0;
   z-index:-1;
+  /* versão leve por padrão; telas grandes trocam pela de 2400px logo
+     abaixo, para o celular não baixar o arquivo maior à toa */
+  --foto:url("../assets/equipe-1280.jpg");
   background-image:
     linear-gradient(102deg,
-      rgba(8,8,11,.94) 0%,
-      rgba(8,8,11,.86) 26%,
-      rgba(8,8,11,.50) 48%,
-      rgba(8,8,11,.18) 70%,
-      rgba(8,8,11,.06) 100%),
+      rgba(8,8,11,.97) 0%,
+      rgba(8,8,11,.92) 28%,
+      rgba(8,8,11,.68) 52%,
+      rgba(8,8,11,.34) 74%,
+      rgba(8,8,11,.20) 100%),
     linear-gradient(180deg,
-      rgba(8,8,11,.72) 0%, rgba(8,8,11,0) 20%,
-      rgba(8,8,11,0) 66%, rgba(8,8,11,.82) 100%),
-    url("../assets/equipe.jpg");
+      rgba(8,8,11,.85) 0%, rgba(8,8,11,0) 22%,
+      rgba(8,8,11,0) 62%, rgba(8,8,11,.9) 100%),
+    var(--foto);
   background-size:cover;
-  background-position:center 42%;
+  background-position:center 38%;
   background-repeat:no-repeat;
+}
+@media (min-width:1100px){
+  .sobre__bg{ --foto:url("../assets/equipe.jpg"); }
 }
 
 .sobre__inner{ position:relative; max-width:var(--wrap); }
@@ -1221,8 +1227,8 @@ section[id], [id="artigos"]{ scroll-margin-top:96px; }
   .sobre__bg{
     background-position:center 30%;
     background-image:
-      linear-gradient(180deg, rgba(8,8,11,.88) 0%, rgba(8,8,11,.7) 40%, rgba(8,8,11,.92) 100%),
-      url("../assets/equipe.jpg");
+      linear-gradient(180deg, rgba(8,8,11,.9) 0%, rgba(8,8,11,.78) 40%, rgba(8,8,11,.95) 100%),
+      var(--foto);
   }
 
   .sol__grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
