@@ -151,23 +151,17 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .hd__logo{
   display:flex;
   align-items:center;
-  gap:10px;
-  padding-inline:10px;
+  padding-inline:8px;
   flex:0 0 auto;
+  transition:transform .3s var(--ease);
 }
+.hd__logo:hover{ transform:scale(1.06); }
 .hd__mark{
-  width:34px; height:34px;
+  width:40px; height:40px;
   color:var(--branco);
   transition:width .3s var(--ease), height .3s var(--ease);
 }
-.hd.is-stuck .hd__mark{ width:29px; height:29px; }
-.hd__logo-text{
-  font-size:17px;
-  font-weight:700;
-  letter-spacing:.01em;
-  color:var(--branco);
-}
-
+.hd.is-stuck .hd__mark{ width:34px; height:34px; }
 /* nav centralizada, sem divisores — a pílula não comporta grade */
 .hd__nav{
   display:flex;
@@ -204,27 +198,57 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   transform-origin:left center;
 }
 
+/* CTA principal: degradê em vez de chapado, brilho roxo permanente que
+   intensifica no hover, e um lustro que atravessa o botão uma vez */
 .hd__cta{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
   display:flex;
   align-items:center;
+  gap:9px;
   flex:0 0 auto;
-  height:44px;
-  padding-inline:26px;
+  height:46px;
+  padding-inline:24px;
   border-radius:999px;
-  background:var(--roxo);
+  background:linear-gradient(135deg,#5A31A8 0%,#40217A 52%,#33196A 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),
+             inset 0 0 0 1px rgba(255,255,255,.10),
+             0 8px 22px -8px rgba(90,49,168,.9);
   color:var(--branco);
   font-size:13.5px;
   font-weight:600;
   white-space:nowrap;
-  transition:background-color .25s var(--ease), box-shadow .25s var(--ease),
-             transform .25s var(--ease);
+  transition:box-shadow .3s var(--ease), transform .3s var(--ease),
+             height .3s var(--ease);
+}
+.hd__cta svg{
+  width:16px; height:16px;
+  fill:none; stroke:currentColor; stroke-width:2.1;
+  stroke-linecap:round; stroke-linejoin:round;
+  transition:transform .3s var(--ease);
+}
+.hd__cta::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  top:0; bottom:0; left:-60%;
+  width:45%;
+  background:linear-gradient(100deg,
+    rgba(255,255,255,0) 0%, rgba(255,255,255,.34) 50%, rgba(255,255,255,0) 100%);
+  transform:skewX(-18deg);
+  transition:left .65s var(--ease);
 }
 .hd__cta:hover{
-  background:var(--roxo-esc);
-  transform:translateY(-1px);
-  box-shadow:0 10px 24px -8px rgba(64,33,122,.95);
+  transform:translateY(-2px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),
+             inset 0 0 0 1px rgba(255,255,255,.18),
+             0 14px 30px -8px rgba(90,49,168,1);
 }
-.hd.is-stuck .hd__cta{ height:40px; }
+.hd__cta:hover::before{ left:120%; }
+.hd__cta:hover svg{ transform:translateX(4px); }
+.hd__cta:active{ transform:translateY(0); }
+.hd.is-stuck .hd__cta{ height:42px; }
 
 .hd__burger{
   display:none;
@@ -1213,13 +1237,14 @@ section[id], [id="artigos"]{ scroll-margin-top:96px; }
    ============================================================= */
 @media (max-width:1080px){
   .hd__link{ padding-inline:11px; font-size:12.5px; }
-  .hd__logo-text{ font-size:16px; }
+  .hd__link::after{ left:11px; right:11px; }
 }
 
 @media (max-width:900px){
   .hd__nav{ display:none; }
   .hd__burger{ display:flex; }
   .hd__logo{ margin-inline-end:auto; }
+  .hd__mark{ width:36px; height:36px; }
 
   .hero{ height:auto; min-height:0; max-height:none;
          padding-top:calc(var(--hd-h) + 86px); padding-bottom:92px; }
@@ -1272,8 +1297,8 @@ section[id], [id="artigos"]{ scroll-margin-top:96px; }
 
 @media (max-width:480px){
   .hd{ width:calc(100% - 20px); top:10px; padding-right:6px; }
-  .hd__logo-text{ font-size:15px; }
-  .hd__cta{ padding-inline:16px; font-size:12.5px; }
+  .hd__cta{ padding-inline:18px; font-size:12.5px; }
+  .hd__cta svg{ display:none; }
   .ft__desc{ max-width:none; }
 }
 
