@@ -61,7 +61,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=19">
+<link rel="stylesheet" href="css/style.css?v=20">
 </head>
 <body>
 <a class="pular" href="#solucoes">Pular para o conteúdo</a>
@@ -147,9 +147,9 @@
      SOBRE NÓS
      ============================================================ -->
 <section class="sobre" id="sobre">
-  <!-- Foto da equipe ao fundo. O arquivo ainda não existe: assim que
-       assets/equipe.jpg for enviado, ele aparece sozinho — o degradê
-       continua por cima e nada mais precisa mudar. -->
+  <!-- Foto da equipe ao fundo, sob degradê. Entra por background-image na
+       regra .sobre__bg: se o arquivo sumir, o degradê sozinho segue
+       desenhando a seção, sem imagem quebrada. -->
   <div class="sobre__bg" aria-hidden="true"></div>
 
   <div class="wrap sobre__inner">
