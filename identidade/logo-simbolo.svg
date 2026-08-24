@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Bombinox">
+  <g fill="none" stroke="currentColor" stroke-width="8.5">
+    <rect x="6.5" y="6.5" width="87" height="87" rx="23"/>
+  </g>
+  <circle cx="47" cy="55" r="28.5" fill="none" stroke="currentColor" stroke-width="7"/>
+  <path fill="currentColor" d="M18.6 45.4c12.4 3.1 26.3 5.4 37.4 6.6 3.1.4 3.1 5.6 0 6-11.1 1.2-25 3.5-37.4 6.6-2 .5-2-18.7 0-19.2z"/>
+  <path fill="currentColor" d="M61.5 15h13v34.5c0 2-4.4 2-4.4 0V29.4c-2.6-2.3-5.6-4.2-8.6-5.6z"/>
+</svg>
