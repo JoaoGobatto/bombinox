@@ -61,7 +61,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=12">
 </head>
 <body>
 <a class="pular" href="#solucoes">Pular para o conteúdo</a>
@@ -69,15 +69,13 @@
 <!-- ============================================================
      HEADER
      ============================================================ -->
-<header class="hd">
+<header class="hd" id="topo">
   <a class="hd__logo" href="/" aria-label="Bombinox — página inicial">
-    <!-- PLACEHOLDER DE LOGO: wordmark provisório.
-         Ao receber identidade/logo.svg, trocar por <img> aqui. -->
-    <span class="hd__logo-text">BOMBINOX</span>
+    <img class="hd__mark" src="assets/favicon-32.png" alt="" width="32" height="32">
+    <span class="hd__logo-text">Bombinox</span>
   </a>
 
   <nav class="hd__nav" aria-label="Navegação principal">
-    <a class="hd__link is-active" href="/">Home</a>
     <a class="hd__link" href="#sobre">Empresa</a>
     <a class="hd__link" href="#solucoes">Produtos</a>
     <a class="hd__link" href="#aplicacoes">Aplicações</a>
@@ -85,24 +83,15 @@
     <a class="hd__link" href="#contato">Contato</a>
   </nav>
 
-  <div class="hd__tools">
-    <a class="hd__fone" href="tel:+554833573043">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span>(48) 3357-3043</span>
-    </a>
+  <a class="hd__cta" href="#contato">Fale com o time</a>
 
-    <a class="hd__cta" href="#contato">Orçamento</a>
+  <button class="hd__burger" type="button" id="btn-menu"
+          aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+    <span></span><span></span><span></span>
+  </button>
 
-    <button class="hd__burger" type="button" id="btn-menu"
-            aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <!-- Menu do celular. Abaixo de 900px a navegação horizontal não cabe;
-       sem isto o botão hambúrguer não levava a lugar nenhum. -->
+  <!-- Painel do celular, ancorado abaixo da pílula -->
   <nav class="menu" id="menu-mobile" aria-label="Navegação do celular" hidden>
-    <a href="/">Home</a>
     <a href="#sobre">Empresa</a>
     <a href="#solucoes">Produtos</a>
     <a href="#aplicacoes">Aplicações</a>
@@ -547,6 +536,15 @@
   }
 
   b.addEventListener('click', function(){ m.hidden ? abrir() : fechar(); });
+
+  // encolhe e escurece a pílula assim que a página sai do topo
+  var hd = document.querySelector('.hd'), preso = false;
+  function rolagem(){
+    var agora = scrollY > 24;
+    if (agora !== preso){ preso = agora; hd.classList.toggle('is-stuck', agora); }
+  }
+  addEventListener('scroll', rolagem, { passive: true });
+  rolagem();
   m.addEventListener('click', function(e){ if (e.target.tagName === 'A') fechar(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') fechar(); });
   // volta ao menu horizontal ao alargar a janela com o painel aberto

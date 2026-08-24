@@ -116,159 +116,160 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 /* =============================================================
    HEADER
    ============================================================= */
-/* transparente, sobreposto ao hero — como na referência */
+/* Pílula flutuante: destacada das bordas, cantos arredondados, vidro
+   fosco. Fixa — acompanha a rolagem e encolhe ao sair do topo. */
 .hd{
-  position:absolute;
-  top:0; left:0; right:0;
-  z-index:20;
-  display:flex;
-  align-items:stretch;
-  height:var(--hd-h);
-  background:transparent;
-  border-bottom:1px solid rgba(255,255,255,.12);
-}
-
-/* bloco sólido roxo à esquerda, altura cheia — igual à referência */
-.hd__logo{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex:0 0 210px;
-  background:var(--roxo);
-  color:var(--branco);
-}
-.hd__logo-text{
-  font-size:17px;
-  font-weight:800;
-  letter-spacing:.14em;
-}
-
-.hd__nav{
-  display:flex;
-  flex:1 1 auto;
-  min-width:0;
-}
-.hd__link{
-  flex:1 1 0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-left:1px solid rgba(255,255,255,.12);
-  font-size:12.5px;
-  font-weight:600;
-  letter-spacing:.04em;
-  color:rgba(255,255,255,.82);
-  transition:color .22s var(--ease);
-}
-.hd__link:last-child{ border-right:1px solid rgba(255,255,255,.12); }
-.hd__link{ position:relative; }
-.hd__link::after{
-  content:"";
-  position:absolute;
-  left:50%; bottom:0;
-  width:0; height:2px;
-  background:var(--branco);
+  position:fixed;
+  top:16px;
+  left:50%;
   transform:translateX(-50%);
-  transition:width .3s var(--ease);
-}
-.hd__link:hover,
-.hd__link.is-active{ color:var(--branco); }
-.hd__link:hover::after,
-.hd__link.is-active::after{ width:34px; }
-
-.hd__tools{
-  display:flex;
-  align-items:stretch;
-  flex:0 0 auto;
-}
-.hd__fone{
+  z-index:50;
   display:flex;
   align-items:center;
   gap:8px;
-  padding-inline:18px;
-  font-size:12.5px;
-  font-weight:600;
-  color:rgba(255,255,255,.82);
+  width:min(1240px, calc(100% - 32px));
+  height:64px;
+  padding:0 8px 0 10px;
+  border-radius:999px;
+  background:rgba(14,14,19,.55);
+  backdrop-filter:blur(20px) saturate(150%);
+  -webkit-backdrop-filter:blur(20px) saturate(150%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.10),
+             0 10px 34px -12px rgba(0,0,0,.7);
+  transition:height .3s var(--ease), top .3s var(--ease),
+             background-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+/* fora do topo: mais compacta e mais opaca, para ler sobre qualquer seção */
+.hd.is-stuck{
+  top:10px;
+  height:56px;
+  background:rgba(8,8,11,.86);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.13),
+             0 14px 40px -14px rgba(0,0,0,.85);
+}
+
+.hd__logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding-inline:10px;
+  flex:0 0 auto;
+}
+.hd__mark{
+  width:32px; height:32px;
+  border-radius:8px;
+  transition:width .3s var(--ease), height .3s var(--ease);
+}
+.hd.is-stuck .hd__mark{ width:28px; height:28px; }
+.hd__logo-text{
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.01em;
+  color:var(--branco);
+}
+
+/* nav centralizada, sem divisores — a pílula não comporta grade */
+.hd__nav{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  margin-inline:auto;
+}
+.hd__link{
+  position:relative;
+  padding:9px 15px;
+  border-radius:999px;
+  font-size:13.5px;
+  font-weight:500;
+  color:rgba(255,255,255,.74);
   white-space:nowrap;
-  transition:color .22s var(--ease);
+  transition:color .22s var(--ease), background-color .22s var(--ease);
 }
-.hd__fone:hover{ color:var(--branco); }
-.hd__fone svg{
-  width:15px; height:15px;
-  fill:none; stroke:currentColor; stroke-width:1.8;
-  stroke-linecap:round; stroke-linejoin:round;
-}
-/* CTA real no lugar do carrinho: a empresa não vende em e-commerce */
+.hd__link:hover{ color:var(--branco); background:rgba(255,255,255,.08); }
+
 .hd__cta{
   display:flex;
   align-items:center;
-  padding-inline:22px;
-  background:rgba(255,255,255,.10);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.26);
+  flex:0 0 auto;
+  height:44px;
+  padding-inline:26px;
+  border-radius:999px;
+  background:var(--roxo);
   color:var(--branco);
-  font-size:11.5px;
-  font-weight:700;
-  letter-spacing:.1em;
-  text-transform:uppercase;
+  font-size:13.5px;
+  font-weight:600;
   white-space:nowrap;
-  transition:background-color .25s var(--ease), box-shadow .25s var(--ease);
+  transition:background-color .25s var(--ease), box-shadow .25s var(--ease),
+             transform .25s var(--ease);
 }
 .hd__cta:hover{
-  background:rgba(255,255,255,.2);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);
+  background:var(--roxo-esc);
+  transform:translateY(-1px);
+  box-shadow:0 10px 24px -8px rgba(64,33,122,.95);
 }
+.hd.is-stuck .hd__cta{ height:40px; }
 
-/* painel do menu no celular */
-.menu{
-  position:absolute;
-  top:var(--hd-h); left:0; right:0;
-  display:flex;
-  flex-direction:column;
-  padding:8px 0 14px;
-  background:rgba(8,8,11,.97);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,255,255,.12);
-}
-.menu[hidden]{ display:none; }
-.menu a{
-  padding:14px 24px;
-  font-size:14px;
-  font-weight:600;
-  color:rgba(255,255,255,.86);
-}
-.menu a:hover{ color:var(--branco); background:rgba(255,255,255,.06); }
-.menu__fone{
-  margin-top:6px;
-  border-top:1px solid rgba(255,255,255,.1);
-  color:var(--branco) !important;
-}
-.trava{ overflow:hidden; }
-
-/* hambúrguer vira X quando aberto */
-.hd__burger span{ transition:transform .28s var(--ease), opacity .2s var(--ease); }
-.hd__burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
-.hd__burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
-.hd__burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
-
-@media (min-width:901px){ .menu{ display:none !important; } }
-
-/* quadrado roxo do menu, colado na borda direita */
 .hd__burger{
-  display:flex;
+  display:none;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   gap:4px;
-  width:var(--hd-h);
-  background:var(--roxo);
+  flex:0 0 auto;
+  width:44px; height:44px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
   transition:background-color .25s var(--ease);
 }
-.hd__burger:hover{ background:var(--roxo-esc); }
+.hd__burger:hover{ background:rgba(255,255,255,.16); }
 .hd__burger span{
-  width:20px; height:2px;
+  width:17px; height:2px;
   background:var(--branco);
+  transition:transform .28s var(--ease), opacity .2s var(--ease);
 }
-.hd__burger span:nth-child(2){ width:14px; }
+.hd__burger span:nth-child(2){ width:12px; }
+.hd__burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+.hd__burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.hd__burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+/* painel do celular, pendurado abaixo da pílula e no mesmo idioma visual */
+.menu{
+  position:absolute;
+  top:calc(100% + 10px);
+  left:0; right:0;
+  display:flex;
+  flex-direction:column;
+  padding:10px;
+  border-radius:24px;
+  background:rgba(8,8,11,.94);
+  backdrop-filter:blur(20px) saturate(150%);
+  -webkit-backdrop-filter:blur(20px) saturate(150%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),
+             0 20px 44px -16px rgba(0,0,0,.85);
+}
+.menu[hidden]{ display:none; }
+.menu a{
+  padding:13px 16px;
+  border-radius:14px;
+  font-size:14px;
+  font-weight:500;
+  color:rgba(255,255,255,.84);
+}
+.menu a:hover{ color:var(--branco); background:rgba(255,255,255,.07); }
+.menu__fone{
+  margin-top:6px;
+  border-top:1px solid rgba(255,255,255,.1);
+  border-radius:0 0 14px 14px;
+  color:var(--branco) !important;
+  font-weight:600 !important;
+}
+.trava{ overflow:hidden; }
+
+@media (min-width:901px){ .menu{ display:none !important; } }
+
+/* âncora não pode parar embaixo da pílula */
+html{ scroll-behavior:smooth; }
+section[id], [id="artigos"]{ scroll-margin-top:96px; }
 
 
 /* =============================================================
@@ -284,7 +285,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   min-height:660px;
   height:100vh;
   max-height:900px;
-  padding-top:var(--hd-h);
   background:var(--d0);
   overflow:hidden;
 }
@@ -1103,17 +1103,17 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
    RESPONSIVO
    ============================================================= */
 @media (max-width:1080px){
-  .hd__logo{ flex-basis:170px; }
-  .hd__link{ font-size:11.5px; }
+  .hd__link{ padding-inline:11px; font-size:12.5px; }
+  .hd__logo-text{ font-size:16px; }
 }
 
 @media (max-width:900px){
   .hd__nav{ display:none; }
-  .hd__logo{ flex:1 1 auto; justify-content:flex-start; padding-inline:22px; }
-  .hd__tools{ margin-inline-start:auto; }
+  .hd__burger{ display:flex; }
+  .hd__logo{ margin-inline-end:auto; }
 
   .hero{ height:auto; min-height:0; max-height:none;
-         padding-top:calc(var(--hd-h) + 78px); padding-bottom:92px; }
+         padding-top:calc(var(--hd-h) + 86px); padding-bottom:92px; }
   .hero__minor{ margin-top:64px; }
 
   .sobre__card{ grid-template-columns:1fr; gap:30px; padding:30px; }
@@ -1159,12 +1159,10 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   .hd__fone{ display:none; }
 }
 
-@media (max-width:420px){
-  .hd__logo{ padding-inline:16px; }
-  .hd__logo-text{ font-size:15px; letter-spacing:.1em; }
-  .hd__cta{ padding-inline:14px; font-size:10.5px; letter-spacing:.06em; }
-  .hd__burger{ width:56px; }
-  .menu a{ padding-inline:16px; }
+@media (max-width:480px){
+  .hd{ width:calc(100% - 20px); top:10px; padding-right:6px; }
+  .hd__logo-text{ font-size:15px; }
+  .hd__cta{ padding-inline:16px; font-size:12.5px; }
   .ft__desc{ max-width:none; }
 }
 
