@@ -1235,6 +1235,62 @@ section[id], [id="artigos"]{ scroll-margin-top:96px; }
 
 
 /* =============================================================
+   WHATSAPP FLUTUANTE
+   ============================================================= */
+/* Verde oficial do WhatsApp, e não o roxo da marca: aqui o
+   reconhecimento imediato do canal vale mais que a coerência de
+   paleta — o usuário identifica o botão antes de ler qualquer coisa. */
+.zap{
+  position:fixed;
+  right:22px; bottom:22px;
+  z-index:60;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:58px; height:58px;
+  border-radius:50%;
+  background:#25D366;
+  color:#0B1F12;
+  box-shadow:0 10px 28px -6px rgba(37,211,102,.6),
+             inset 0 1px 0 rgba(255,255,255,.35);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.zap svg{ width:30px; height:30px; }
+.zap:hover{
+  transform:scale(1.08);
+  box-shadow:0 16px 38px -6px rgba(37,211,102,.85),
+             inset 0 1px 0 rgba(255,255,255,.5);
+}
+/* halo pulsando: chama o olho sem exigir atenção */
+.zap::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:2px solid rgba(37,211,102,.65);
+  animation:zapPulso 2.6s ease-out infinite;
+}
+@keyframes zapPulso{
+  0%  { transform:scale(1);   opacity:.75; }
+  70% { transform:scale(1.55); opacity:0; }
+  100%{ transform:scale(1.55); opacity:0; }
+}
+
+.ft__ico--zap{ fill:currentColor; stroke:none; }
+
+@media (max-width:560px){
+  .zap{ right:16px; bottom:16px; width:52px; height:52px; }
+  .zap svg{ width:27px; height:27px; }
+}
+
+@media print{ .zap{ display:none; } }
+
+@media (prefers-reduced-motion:reduce){
+  .zap::after{ animation:none; opacity:0; }
+}
+
+
+/* =============================================================
    RESPONSIVO
    ============================================================= */
 @media (max-width:1080px){
