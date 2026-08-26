@@ -62,7 +62,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="css/style.css?v=25">
+<link rel="stylesheet" href="css/style.css?v=26">
 </head>
 <body>
 <a class="pular" href="#solucoes">Pular para o conteúdo</a>
@@ -122,8 +122,8 @@
     <!-- Bomba em operação. O arquivo tem ida e volta embutidas, então o
          `loop` nativo fecha sem emenda: o movimento é uma deriva lateral
          lenta, que na volta lê como oscilação, não como marcha a ré. -->
-    <video class="hero__video" autoplay muted loop playsinline
-           preload="auto" poster="assets/poster-hero.jpg">
+    <video class="hero__video" autoplay muted loop playsinline webkit-playsinline
+           preload="auto" disablepictureinpicture poster="assets/poster-hero.jpg">
       <source src="assets/hero-bomba.mp4" type="video/mp4">
     </video>
 
@@ -530,6 +530,27 @@
   }
   addEventListener('scroll', rolagem, { passive: true });
   rolagem();
+
+  // ---- autoplay do vídeo do hero ----
+  // iOS e o modo economia de dados costumam recusar o autoplay declarado.
+  // A propriedade muted precisa estar no objeto, não só no atributo, e a
+  // promessa de play() precisa ser tratada — senão o vídeo fica parado no
+  // poster e parece imagem estática.
+  var vid = document.querySelector('.hero__video');
+  if (vid) {
+    vid.muted = true;
+    vid.playsInline = true;
+    var tocar = function(){
+      var p = vid.play();
+      if (p && p.catch) p.catch(function(){});
+    };
+    tocar();
+    vid.addEventListener('loadeddata', tocar, { once: true });
+    // último recurso: o primeiro toque na tela libera a reprodução
+    ['touchstart','click'].forEach(function(ev){
+      document.addEventListener(ev, tocar, { once: true, passive: true });
+    });
+  }
 
   // ---- revelação ao rolar ----
   var alvos = document.querySelectorAll('[data-revela]');

@@ -1304,8 +1304,16 @@ section[id], [id="artigos"]{ scroll-margin-top:96px; }
   .hd__logo{ margin-inline-end:auto; }
   .hd__mark{ width:44px; height:44px; }
 
-  .hero{ height:auto; min-height:0; max-height:none;
-         padding-top:calc(var(--hd-h) + 110px); padding-bottom:104px; }
+  /* tela cheia também no celular. svh desconta a barra do navegador, que
+     o vh clássico ignora e que fazia a seção seguinte espiar por baixo */
+  .hero{
+    height:auto;
+    min-height:100vh;
+    min-height:100svh;
+    max-height:none;
+    padding-top:calc(var(--hd-h) + 44px);
+    padding-bottom:48px;
+  }
 
   .sobre{ min-height:0; padding-block:80px; }
   .sobre__bg{
@@ -1328,7 +1336,7 @@ section[id], [id="artigos"]{ scroll-margin-top:96px; }
 
 @media (max-width:560px){
   .sobre{ padding-block:60px 70px; }
-  .hero__pill{ width:100%; justify-content:center; }
+  .hero__pill{ width:100%; max-width:360px; justify-content:center; }
 
   .sol{ padding-block:60px 68px; }
   .sol__grid{ grid-template-columns:1fr; }
