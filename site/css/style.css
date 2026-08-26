@@ -58,6 +58,34 @@ body::after{
   background-size:140px 140px;
 }
 
+/* =============================================================
+   REVELAÇÃO AO ROLAR
+   Só vale quando há JavaScript: a classe .js entra no <html> antes da
+   primeira pintura. Sem ela, tudo nasce visível — nenhum conteúdo fica
+   preso invisível se o script falhar.
+   ============================================================= */
+.js [data-revela]{
+  opacity:0;
+  transform:translateY(26px);
+  transition:opacity .75s var(--ease), transform .75s var(--ease);
+  transition-delay:var(--atraso,0ms);
+}
+.js [data-revela].is-vista{
+  opacity:1;
+  transform:none;
+}
+
+/* entrada do hero, no carregamento: não depende de rolagem */
+.js .hero__title,
+.js .hero__pill{
+  animation:sobe .9s var(--ease) both;
+}
+.js .hero__pill{ animation-delay:.16s; }
+@keyframes sobe{
+  from{ opacity:0; transform:translateY(30px); }
+  to  { opacity:1; transform:none; }
+}
+
 img,svg,video{ display:block; max-width:100%; }
 a{ text-decoration:none; color:inherit; }
 button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; }
@@ -1288,6 +1316,7 @@ section[id], [id="artigos"]{ scroll-margin-top:96px; }
 
 @media (prefers-reduced-motion:reduce){
   *{ animation:none !important; transition:none !important; }
+  .js [data-revela]{ opacity:1; transform:none; }
   .hero__pill::after{ animation:none; opacity:.45; }
   /* quem pediu menos movimento não deve receber vídeo em autoplay;
      o poster assume o lugar */

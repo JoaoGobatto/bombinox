@@ -61,7 +61,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=22">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="css/style.css?v=23">
 </head>
 <body>
 <a class="pular" href="#solucoes">Pular para o conteúdo</a>
@@ -153,28 +154,28 @@
   <div class="sobre__bg" aria-hidden="true"></div>
 
   <div class="wrap sobre__inner">
-    <p class="sobre__eyebrow">Quem somos</p>
+    <p class="sobre__eyebrow" data-revela>Quem somos</p>
 
-    <h2 class="sobre__titulo">
+    <h2 class="sobre__titulo" data-revela>
       Vinte anos fabricando<br>
       <span>bombeamento sanitário em inox</span>
     </h2>
 
-    <p class="sobre__txt">
+    <p class="sobre__txt" data-revela>
       Bombas centrífugas sanitárias são o nosso produto principal, ao lado de
       válvulas, conexões, misturadores e projetos especiais desenvolvidos sob a
       necessidade de cada linha de processo. Trabalhamos com AISI 304 e 316L,
       com acabamento sanitário nas partes em contato com o produto.
     </p>
 
-    <div class="stats">
-      <div class="stat"><strong>+20</strong><span>anos exportando para todo o mundo</span></div>
-      <div class="stat"><strong>304 · 316L</strong><span>aço inox conforme a aplicação</span></div>
-      <div class="stat"><strong>5</strong><span>segmentos industriais atendidos</span></div>
-      <div class="stat"><strong>Sob medida</strong><span>projetos especiais por linha</span></div>
+    <div class="stats" data-grupo>
+      <div class="stat" data-revela><strong>+20</strong><span>anos exportando para todo o mundo</span></div>
+      <div class="stat" data-revela><strong>304 · 316L</strong><span>aço inox conforme a aplicação</span></div>
+      <div class="stat" data-revela><strong>5</strong><span>segmentos industriais atendidos</span></div>
+      <div class="stat" data-revela><strong>Sob medida</strong><span>projetos especiais por linha</span></div>
     </div>
 
-    <a class="btn btn--roxo" href="#contato">Fale com o time <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13,6 19,12 13,18"/></svg></a>
+    <a class="btn btn--roxo" data-revela href="#contato">Fale com o time <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13,6 19,12 13,18"/></svg></a>
   </div>
 </section>
 
@@ -185,7 +186,7 @@
   <div class="sol__glow" aria-hidden="true"></div>
 
   <div class="wrap">
-    <div class="sol__head">
+    <div class="sol__head" data-revela>
       <div>
         <p class="sol__eyebrow">O que nós oferecemos</p>
         <h2 class="sol__title">Nossas soluções</h2>
@@ -193,9 +194,9 @@
       <a class="btn btn--ghost" href="#contato">Solicitar orçamento <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13,6 19,12 13,18"/></svg></a>
     </div>
 
-    <div class="sol__grid">
+    <div class="sol__grid" data-grupo>
 
-      <article class="card">
+      <article class="card" data-revela>
         <div class="card__plate">
           <span class="card__ph">Foto pendente<br><b>bomba-duplo-parafuso.png</b></span>
           <img class="card__img" loading="lazy" onerror="this.remove()"
@@ -215,7 +216,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-revela>
         <div class="card__plate">
           <span class="card__ph">Foto pendente<br><b>bomba-lobulos.png</b></span>
           <img class="card__img" loading="lazy" onerror="this.remove()"
@@ -235,7 +236,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-revela>
         <div class="card__plate">
           <span class="card__ph">Foto pendente<br><b>triblender.png</b></span>
           <img class="card__img" loading="lazy" onerror="this.remove()"
@@ -265,32 +266,32 @@
      ============================================================ -->
 <section class="aplic" id="aplicacoes">
   <div class="wrap">
-    <div class="aplic__head">
+    <div class="aplic__head" data-revela>
       <p class="sol__eyebrow">Onde os nossos equipamentos trabalham</p>
       <h2 class="sol__title">Aplicações</h2>
     </div>
-    <div class="aplic__grid">
-      <article class="seg">
+    <div class="aplic__grid" data-grupo>
+      <article class="seg" data-revela>
         <svg class="seg__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18a9 9 0 0 1-18 0z"/></svg>
         <h3 class="seg__nome">Alimentos</h3>
         <p class="seg__txt">Transferência de produto em linhas com exigência sanitária.</p>
       </article>
-      <article class="seg">
+      <article class="seg" data-revela>
         <svg class="seg__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2h4v3l1.5 2.5V21a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1V7.5L10 5V2z"/></svg>
         <h3 class="seg__nome">Bebidas</h3>
         <p class="seg__txt">Bombeamento de líquidos com contato direto com o produto.</p>
       </article>
-      <article class="seg">
+      <article class="seg" data-revela>
         <svg class="seg__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c4 5 6 7.5 6 10a6 6 0 0 1-12 0c0-2.5 2-5 6-10z"/></svg>
         <h3 class="seg__nome">Cosméticos</h3>
         <p class="seg__txt">Fluidos de média e alta viscosidade em processo.</p>
       </article>
-      <article class="seg">
+      <article class="seg" data-revela>
         <svg class="seg__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 10a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 19L14 9V3"/></svg>
         <h3 class="seg__nome">Farmacêutico</h3>
         <p class="seg__txt">Acabamento sanitário nas partes em contato com o produto.</p>
       </article>
-      <article class="seg">
+      <article class="seg" data-revela>
         <svg class="seg__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 8v8M8 12h8"/></svg>
         <h3 class="seg__nome">Químico</h3>
         <p class="seg__txt">Construção em inox para compatibilidade com o meio.</p>
@@ -318,7 +319,7 @@
     </svg>
 
     <div class="wrap">
-      <div class="expo__intro">
+      <div class="expo__intro" data-revela>
         <p class="expo__eyebrow">Expandindo fronteiras com qualidade e tecnologia</p>
         <h2 class="expo__title">Exportação Bombinox</h2>
         <p class="expo__text">
@@ -335,7 +336,7 @@
         </div>
       </div>
 
-      <div class="expo__head" id="artigos">
+      <div class="expo__head" id="artigos" data-revela>
         <p class="sol__eyebrow">Destaques</p>
         <h2 class="expo__sub">Artigos recentes</h2>
       </div>
@@ -344,9 +345,9 @@
 
   <div class="expo__bottom">
     <div class="wrap">
-      <div class="posts">
+      <div class="posts" data-grupo>
 
-        <article class="post">
+        <article class="post" data-revela>
           <span class="post__rule" aria-hidden="true"></span>
           <h3 class="post__title">Preço de acessórios de aço inoxidável</h3>
           <p class="post__text">
@@ -359,7 +360,7 @@
           </a>
         </article>
 
-        <article class="post">
+        <article class="post" data-revela>
           <span class="post__rule" aria-hidden="true"></span>
           <h3 class="post__title">Empresa de bomba autoescorvante</h3>
           <p class="post__text">
@@ -372,7 +373,7 @@
           </a>
         </article>
 
-        <article class="post">
+        <article class="post" data-revela>
           <span class="post__rule" aria-hidden="true"></span>
           <h3 class="post__title">Bomba centrífuga sanitária</h3>
           <p class="post__text">
@@ -398,20 +399,20 @@
      ============================================================ -->
 <section class="cta" id="contato">
   <div class="cta__glow" aria-hidden="true"></div>
-  <div class="wrap cta__inner">
-    <p class="cta__eyebrow">Fale com engenharia, não com atendimento</p>
-    <h2 class="cta__title">Vamos especificar o equipamento certo<br><span>para a sua linha</span></h2>
-    <p class="cta__txt">
+  <div class="wrap cta__inner" data-grupo>
+    <p class="cta__eyebrow" data-revela>Fale com engenharia, não com atendimento</p>
+    <h2 class="cta__title" data-revela>Vamos especificar o equipamento certo<br><span>para a sua linha</span></h2>
+    <p class="cta__txt" data-revela>
       Diga a aplicação, o produto bombeado e a vazão desejada. O time responde
       com a configuração adequada e o material indicado para o seu processo.
     </p>
 
-    <div class="cta__acoes">
+    <div class="cta__acoes" data-revela>
       <a class="btn btn--roxo" href="mailto:bombinox@bombinox.com.br?subject=Solicita%C3%A7%C3%A3o%20de%20or%C3%A7amento%20%E2%80%94%20site&body=Equipamento%20de%20interesse%3A%0AAplicacao%20/%20produto%20bombeado%3A%0AVazao%20desejada%3A%0APressao%20ou%20altura%20manometrica%3A%0AMaterial%20%28AISI%20304%20ou%20316L%29%3A%0A%0AEmpresa%3A%0ACidade%20/%20pais%3A%0ATelefone%3A%0A">Solicitar orçamento</a>
       <a class="btn btn--ghost" href="tel:+554833573043">(48) 3357-3043</a>
     </div>
 
-    <div class="cta__canais">
+    <div class="cta__canais" data-revela>
       <a href="mailto:bombinox@bombinox.com.br">bombinox@bombinox.com.br</a>
       <span>R. Kiliano Hames, 590 — Potecas, São José — SC</span>
     </div>
@@ -422,9 +423,9 @@
      RODAPÉ
      ============================================================ -->
 <footer class="ft">
-  <div class="wrap ft__grid">
+  <div class="wrap ft__grid" data-grupo>
 
-    <div class="ft__brand">
+    <div class="ft__brand" data-revela>
       <!-- PLACEHOLDER DE LOGO: wordmark provisório, igual ao do header. -->
       <p class="ft__logo">Bombinox</p>
       <p class="ft__tagline">Solução em bombeamento</p>
@@ -435,7 +436,7 @@
       </p>
     </div>
 
-    <nav class="ft__col" aria-labelledby="ft-nav">
+    <nav class="ft__col" data-revela aria-labelledby="ft-nav">
       <h3 class="ft__head" id="ft-nav">Navegação</h3>
       <ul class="ft__list">
         <li><a href="/"><svg class="ft__chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="9,5 16,12 9,19"/></svg>Home</a></li>
@@ -447,7 +448,7 @@
       </ul>
     </nav>
 
-    <div class="ft__col">
+    <div class="ft__col" data-revela>
       <h3 class="ft__head">Contatos</h3>
 
       <p class="ft__item">
@@ -471,7 +472,7 @@
       </p>
     </div>
 
-    <div class="ft__col">
+    <div class="ft__col" data-revela>
       <h3 class="ft__head">Redes sociais</h3>
       <div class="ft__social">
         <a href="https://www.facebook.com/bombinoxoficial/" aria-label="Facebook da Bombinox" target="_blank" rel="noopener">
@@ -521,6 +522,33 @@
   }
   addEventListener('scroll', rolagem, { passive: true });
   rolagem();
+
+  // ---- revelação ao rolar ----
+  var alvos = document.querySelectorAll('[data-revela]');
+
+  // escalona os filhos de cada grupo, para a linha entrar em cascata
+  document.querySelectorAll('[data-grupo]').forEach(function(g){
+    g.querySelectorAll('[data-revela]').forEach(function(el, i){
+      el.style.setProperty('--atraso', (i * 90) + 'ms');
+    });
+  });
+
+  function mostrarTudo(){
+    alvos.forEach(function(el){ el.classList.add('is-vista'); });
+  }
+
+  var reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduz || !('IntersectionObserver' in window)) { mostrarTudo(); return; }
+
+  var obs = new IntersectionObserver(function(entradas){
+    entradas.forEach(function(e){
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-vista');
+      obs.unobserve(e.target);   // anima uma vez só
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+  alvos.forEach(function(el){ obs.observe(el); });
   m.addEventListener('click', function(e){ if (e.target.tagName === 'A') fechar(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') fechar(); });
   // volta ao menu horizontal ao alargar a janela com o painel aberto
