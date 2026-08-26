@@ -48,7 +48,13 @@ engenharia.
 - Endereço: R. Kiliano Hames, 590 — Potecas, São José — SC
 - Telefones: (48) 3357-3043 · (48) 3357-0874 · (48) 3357-0727 · (48) 3380-0937
 - E-mail: bombinox@bombinox.com.br
-- Redes: Facebook, Instagram e YouTube *(URLs ainda não informadas)*
+- WhatsApp comercial: +55 48 99570908 — link em uso no site:
+  `https://api.whatsapp.com/send/?phone=554899570908&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es%21`
+  *(o número tem 12 dígitos, um a menos que o padrão de celular pós-2016;
+  confirmado pelo usuário como correto)*
+- Facebook: https://www.facebook.com/bombinoxoficial/
+- Instagram: https://www.instagram.com/bombinox_oficial/
+- *(YouTube foi removido do site — canal não informado)*
 
 **Menu do site atual:** Home, Quem Somos, Produtos, Tópicos, Dados Técnicos,
 Fale Conosco.
